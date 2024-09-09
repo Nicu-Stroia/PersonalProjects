@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/Exercitii2/Exercitii2/bin/Debug/net7.0
+/Exercitii2/Exercitii2/obj
+/Exercitii2/.vs
