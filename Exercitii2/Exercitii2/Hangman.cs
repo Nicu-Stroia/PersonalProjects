@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using static System.Net.WebRequestMethods;
 using File = System.IO.File;
 
+//hello
 namespace Exercitii2
 {
     internal class Hangman

@@ -36,7 +36,7 @@ namespace Exercitii2
 
         public void GuessNumber()
         {
-            Console.Write("Enter the number asd: ");
+            Console.Write("Enter the number: ");
             nb1 = int.Parse(Console.ReadLine());
             if (nb >= nb1 && nb != nb1)
             {
