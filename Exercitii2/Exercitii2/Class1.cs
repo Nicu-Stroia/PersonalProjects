@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-//Hello Nicu
 namespace Exercitii2
 {
     internal class Game
@@ -40,6 +39,7 @@ namespace Exercitii2
             nb1 = int.Parse(Console.ReadLine());
             if (nb >= nb1 && nb != nb1)
             {
+                Console.WriteLine("The number is biger");
                 tries++;
             }
             if (nb <= nb1 && nb != nb1)
