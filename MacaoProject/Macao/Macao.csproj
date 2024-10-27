@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BB498C5A-2975-41D4-AE41-E684F2862801}</ProjectGuid>
+    <ProjectGuid>{E671D96C-669A-4145-B1D9-94334A506FAB}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Quiz</RootNamespace>
-    <AssemblyName>Quiz</AssemblyName>
+    <RootNamespace>Macao</RootNamespace>
+    <AssemblyName>Macao</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -46,18 +46,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MathTest.cs">
+    <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include=".Designer.cs">
-      <DependentUpon>MathTest.cs</DependentUpon>
-      <SubType>Form</SubType>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MathTest.resx">
-      <DependentUpon>MathTest.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
