@@ -10,7 +10,7 @@ namespace Macao
 {
     public class Game
     {
-        public Player turn { get; set; }
+        public Player PlayerTurn { get; set; }
 
         public void DisplayWinner()
         {

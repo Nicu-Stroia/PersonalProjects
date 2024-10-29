@@ -8,9 +8,9 @@ namespace Macao
 {
     public class Deck
     {
-        List<Card> cards = new List<Card>();
+        public List<Card> Cards { get; set; }  = new List <Card>();
 
-        public void Move(Deck deck2)
+        public void Move(Deck discardDeck)
         {
 
         }

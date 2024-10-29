@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Macao
 {
-    public class Card_Two
+    public class CardA
     {
         public void Validation()
         {

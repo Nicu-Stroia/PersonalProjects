@@ -6,11 +6,16 @@ using System.Threading.Tasks;
 
 namespace Macao
 {
-    public class Card_A
+    public class Card
     {
+        public string Type { get; set; }
+        private string Symbol { get; set; }
+        public string Picture { get; set; }
+
         public void Validation()
         {
 
         }
+
     }
 }

@@ -8,20 +8,20 @@ namespace Macao
 {
     public class Player
     {
-        public string fisrtName { get; set; }
-        public string lastName { get; set; }
+        public string FisrtName { get; set; }
+        public string LastName { get; set; }
 
         public void LastCard()
         {
 
         }
 
-        public void Pick()
+        public void DrawCard()
         {
 
         }
 
-        public void Put()
+        public void PlaceCard()
         {
 
         }
