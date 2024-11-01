@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Macao.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,8 +9,15 @@ namespace Macao
 {
     public class Card
     {
-        public string Type { get; set; }
-        private string Symbol { get; set; }
+        public CardValue CardValue { get; set; }
+        public CardSymbol CardSymbol { get; set; }
+
+        public Card(CardValue value, CardSymbol symbol)
+        {
+            CardValue = value;
+            CardSymbol = symbol;
+        }
+
         public string Picture { get; set; }
 
         public void Validation()
