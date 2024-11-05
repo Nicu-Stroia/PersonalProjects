@@ -1,6 +1,7 @@
 ﻿using Macao.Enums;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,12 +15,10 @@ namespace Macao
 
         public void Move(Deck discardDeck)
         {
-
         }
 
         public void Shuffle()
         {
-
         }
     }
 }
