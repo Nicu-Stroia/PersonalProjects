@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Macao
 {
@@ -13,12 +14,40 @@ namespace Macao
     {
         public List<Card> Cards { get; set; } = new List<Card>();
 
-        public void Move(Deck discardDeck)
+
+        public void Shuffle(List<Card> shuffleCards)
         {
+            Random shuffle = new Random();
+            int cardsSize = shuffleCards.Count;
+            int shuffleCardsSize = shuffleCards.Count;
+            int randomIndex;
+            for (int i = 0; i < cardsSize; i++)
+            {
+                randomIndex = shuffle.Next(shuffleCardsSize);
+                Cards.Add(shuffleCards[randomIndex]);
+                shuffleCards.Remove(shuffleCards[randomIndex]);
+                shuffleCardsSize--;
+            }
         }
 
-        public void Shuffle()
+        public void Move(List<Card> discardCards)
         {
+            int cardsSize = Cards.Count;
+            foreach(Card card in Cards)
+            {
+                discardCards.Add(card);
+            }
+            if(discardCards.Count == Cards.Count)
+            {
+                foreach(Card card in discardCards)
+                {
+                    Cards.Remove(card);
+                }
+            }
+            if (Cards.Count == 0)
+            {
+                Shuffle(discardCards);
+            }
         }
     }
 }
