@@ -15,38 +15,39 @@ namespace Macao
         public List<Card> Cards { get; set; } = new List<Card>();
 
 
-        public void Shuffle(List<Card> shuffleCards)
+        public void Shuffle()
         {
             Random shuffle = new Random();
-            int cardsSize = shuffleCards.Count;
-            int shuffleCardsSize = shuffleCards.Count;
+            int cardsSize = Cards.Count;
             int randomIndex;
-            for (int i = 0; i < cardsSize; i++)
+            for (int i = 0; i < Cards.Count; i++)
             {
-                randomIndex = shuffle.Next(shuffleCardsSize);
-                Cards.Add(shuffleCards[randomIndex]);
-                shuffleCards.Remove(shuffleCards[randomIndex]);
-                shuffleCardsSize--;
+                randomIndex = shuffle.Next(cardsSize);
+                Cards.Add(Cards[randomIndex]);
+                Cards.Remove(Cards[randomIndex]);
+                cardsSize--;
             }
         }
 
         public void Move(List<Card> discardCards)
         {
-            int cardsSize = Cards.Count;
             foreach(Card card in Cards)
             {
                 discardCards.Add(card);
             }
-            if(discardCards.Count == Cards.Count)
+            Cards.Clear();
+        }
+
+        public void ShuffleDiscardDeck (List<Card> discardCards)
+        {
+            Random shuffle = new Random();
+            int discardCardsSize = discardCards.Count;
+            int randomIndex;
+            for (int i = 0; i < discardCardsSize; i++)
             {
-                foreach(Card card in discardCards)
-                {
-                    Cards.Remove(card);
-                }
-            }
-            if (Cards.Count == 0)
-            {
-                Shuffle(discardCards);
+                randomIndex = shuffle.Next(discardCards.Count);
+                Cards.Add(discardCards[randomIndex]);
+                discardCards.Remove(discardCards[randomIndex]);
             }
         }
     }

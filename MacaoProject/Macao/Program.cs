@@ -1,5 +1,6 @@
 ﻿using Macao.Enums;
 using System;
+using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -32,8 +33,9 @@ namespace Macao
             deck.Cards.Add(newCard5);
             Card newCard6 = new Card(CardValue.Five, CardSymbol.Club);
             deck.Cards.Add(newCard6);
-            deck.Shuffle(deck.Cards);
+            deck.Shuffle();
             deck.Move(discardCards);
+            deck.ShuffleDiscardDeck(discardCards);
             Application.Run(new Form1());
         }
     }
