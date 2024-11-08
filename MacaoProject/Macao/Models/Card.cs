@@ -12,6 +12,7 @@ namespace Macao
         public CardValue CardValue { get; set; }
         public CardSymbol CardSymbol { get; set; }
 
+        public Card() { }  
         public Card(CardValue value, CardSymbol symbol)
         {
             CardValue = value;
@@ -24,6 +25,5 @@ namespace Macao
         {
 
         }
-
     }
 }
