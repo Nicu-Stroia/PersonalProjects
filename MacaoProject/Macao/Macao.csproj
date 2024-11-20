@@ -46,23 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Enums\CardSymbol.cs" />
-    <Compile Include="Enums\CardValue.cs" />
+    <Compile Include="Enums\CardSymbolEnum.cs" />
+    <Compile Include="Enums\CardValueEnum.cs" />
+    <Compile Include="GamePlaceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GamePlaceForm.Designer.cs">
+      <DependentUpon>GamePlaceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\CardA.cs" />
     <Compile Include="Models\CardSeven.cs" />
     <Compile Include="Models\CardTwo.cs" />
     <Compile Include="Models\Card.cs" />
     <Compile Include="Models\Deck.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="MainMenuForm.Designer.cs">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\Game.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GamePlaceForm.resx">
+      <DependentUpon>GamePlaceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenuForm.resx">
+      <DependentUpon>MainMenuForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -84,6 +96,61 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pictures\10Club.png" />
+    <Content Include="Pictures\10Diamond.png" />
+    <Content Include="Pictures\10Heart.png" />
+    <Content Include="Pictures\10Spade.png" />
+    <Content Include="Pictures\02Club.png" />
+    <Content Include="Pictures\02Diamond.png" />
+    <Content Include="Pictures\02Heart.png" />
+    <Content Include="Pictures\02Spade.png" />
+    <Content Include="Pictures\03Club.png" />
+    <Content Include="Pictures\03Diamond.png" />
+    <Content Include="Pictures\03Heart.png" />
+    <Content Include="Pictures\03Spade.png" />
+    <Content Include="Pictures\04Club.png" />
+    <Content Include="Pictures\04Diamond.png" />
+    <Content Include="Pictures\04Heart.png" />
+    <Content Include="Pictures\04Spade.png" />
+    <Content Include="Pictures\05Club.png" />
+    <Content Include="Pictures\05Diamond.png" />
+    <Content Include="Pictures\05Heart.png" />
+    <Content Include="Pictures\05Spade.png" />
+    <Content Include="Pictures\06Club.png" />
+    <Content Include="Pictures\06Diamond.png" />
+    <Content Include="Pictures\06Heart.png" />
+    <Content Include="Pictures\06Spade.png" />
+    <Content Include="Pictures\07Club.png" />
+    <Content Include="Pictures\07Diamond.png" />
+    <Content Include="Pictures\07Heart.png" />
+    <Content Include="Pictures\07Spade.png" />
+    <Content Include="Pictures\08Club.png" />
+    <Content Include="Pictures\08Diamond.png" />
+    <Content Include="Pictures\08Heart.png" />
+    <Content Include="Pictures\08Spade.png" />
+    <Content Include="Pictures\09Club.png" />
+    <Content Include="Pictures\09Diamond.png" />
+    <Content Include="Pictures\09Heart.png" />
+    <Content Include="Pictures\09Spade.png" />
+    <Content Include="Pictures\11Club.png" />
+    <Content Include="Pictures\11Diamond.png" />
+    <Content Include="Pictures\11Heart.png" />
+    <Content Include="Pictures\11Spade.png" />
+    <Content Include="Pictures\12Club.png" />
+    <Content Include="Pictures\12Diamond.png" />
+    <Content Include="Pictures\12Heart.png" />
+    <Content Include="Pictures\12Spade.png" />
+    <Content Include="Pictures\14Club.png" />
+    <Content Include="Pictures\14Diamond.png" />
+    <Content Include="Pictures\14Heart.png" />
+    <Content Include="Pictures\14Spade.png" />
+    <Content Include="Pictures\13Club.png" />
+    <Content Include="Pictures\13Diamond.png" />
+    <Content Include="Pictures\13Heart.png" />
+    <Content Include="Pictures\13Spade.png" />
+    <Content Include="Pictures\CardBack.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
