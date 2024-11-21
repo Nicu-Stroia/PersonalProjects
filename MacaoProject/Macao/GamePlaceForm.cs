@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Macao.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,80 +19,105 @@ namespace Macao
 
         public List<PictureBox> RemainingCards { get; set; } = new List<PictureBox>();
 
-        public List<PictureBox> MoveCards { get; set; } = new List<PictureBox>();
+        public List<PictureBox> DiscardCards { get; set; } = new List<PictureBox>();
 
         public GamePlaceForm()
         {
             InitializeComponent();
         }
 
-        public void AddPlayer1Cards(PictureBox picture)
+        private void SetStartCard(Game game)
         {
-            Player1Cards.Add(picture);
-        }
-
-        public void AddPlayer2Cards(PictureBox picture)
-        {
-            Player2Cards.Add(picture);
-        }
-
-        private void GamePlaceForm_Load(object sender, EventArgs e)
-        {
-            Deck deck = new Deck();
-            Game newGame = new Game();
-            Deck startDeck = newGame.CreateDeck();
-            newGame.StartGame(startDeck);
-
-            int startDeckSize = startDeck.Cards.Count;
-            int counterPlayerCard = 0;
+            int n = game.StartDeck.Cards.Count;
             Card startCard = new Card();
-            startCard = startDeck.Cards[counterPlayerCard];
+            startCard = game.StartDeck.Cards[0];
+            game.StartDeck.Cards.Remove(startCard);
             InitialCard.Image = Image.FromFile(startCard.Picture);
-            startDeck.Cards.Remove(startCard);
+        }
+        private void AddPlayer1Cards(Game game)
+        {
+            Player1Cards.Add(Player1Card1);
+            Player1Cards.Add(Player1Card2);
+            Player1Cards.Add(Player1Card3);
+            Player1Cards.Add(Player1Card4);
+            Player1Cards.Add(Player1Card5);
 
             Card randomPlayerCard = new Card();
-            AddPlayer1Cards(Player1Card1);
-            AddPlayer1Cards(Player1Card2);
-            AddPlayer1Cards(Player1Card3);
-            AddPlayer1Cards(Player1Card4);
-            AddPlayer1Cards(Player1Card5);
-            foreach (PictureBox pictureCard in Player1Cards)
+            foreach(PictureBox pictureCard in Player1Cards)
             {
-                randomPlayerCard = startDeck.Cards[counterPlayerCard];
+                randomPlayerCard = game.StartDeck.Cards[0];
                 pictureCard.Image = Image.FromFile(randomPlayerCard.Picture);
-                startDeck.Cards.Remove(randomPlayerCard);
+                game.StartDeck.Cards.Remove(randomPlayerCard);
             }
+        }
 
-            AddPlayer2Cards(Player2Card1);
-            AddPlayer2Cards(Player2Card2);
-            AddPlayer2Cards(Player2Card3);
-            AddPlayer2Cards(Player2Card4);
-            AddPlayer2Cards(Player2Card5);
+        private void AddPlayer2Cards(Game game)
+        {
+            Player2Cards.Add(Player2Card1);
+            Player2Cards.Add(Player2Card2);
+            Player2Cards.Add(Player2Card3);
+            Player2Cards.Add(Player2Card4);
+            Player2Cards.Add(Player2Card5);
+
+            Card randomPlayerCard = new Card();
             foreach (PictureBox pictureCard in Player2Cards)
             {
-                randomPlayerCard = startDeck.Cards[counterPlayerCard];
+                randomPlayerCard = game.StartDeck.Cards[0];
                 pictureCard.Image = Image.FromFile(randomPlayerCard.Picture);
-                startDeck.Cards.Remove(randomPlayerCard);
+                game.StartDeck.Cards.Remove(randomPlayerCard);
             }
+        }
 
-            for (int i = Player1Cards.Count + Player2Cards.Count + 1; i < startDeckSize; i++)
+        private void AddRemainingCards(Game game)
+        {
+            int startDeckSize = game.StartDeck.Cards.Count;
+            for (int i = 0; i < startDeckSize; i++)
             {
                 PictureBox pictureCardsInitialDeck = new PictureBox();
                 RemainingCards.Add(pictureCardsInitialDeck);
             }
-            foreach (PictureBox pictureCard in RemainingCards)
-            {
-                randomPlayerCard = startDeck.Cards[counterPlayerCard];
-                pictureCard.Image = Image.FromFile(randomPlayerCard.Picture);
-                counterPlayerCard++;
-            }
+
+            Card randomCard = new Card();
+            int cardCount = 0;
             foreach(PictureBox pictureCard in RemainingCards)
             {
-                MoveCards.Add(pictureCard);
+                randomCard = game.StartDeck.Cards[cardCount];
+                pictureCard.Image = Image.FromFile(randomCard.Picture);
+                cardCount++;
             }
+        }
 
-            deck.CardBack.Picture = @"C:\ProjectsGit\PersonalProjects\MacaoProject\Macao\Pictures\CardBack.png";
+        private void AddToDiscardDeck(Game game)
+        {
+            foreach (PictureBox pictureCard in RemainingCards)
+            {
+                DiscardCards.Add(pictureCard);
+            }
+        }
+
+        private void SetCardBack()
+        {
+            Deck deck = new Deck();
+            deck.CardBack.Picture = MacaoConstants.BackCardImagePath;
             InitialDeck.Image = Image.FromFile(deck.CardBack.Picture);
+        }
+
+        private void GamePlaceForm_Load(object sender, EventArgs e)
+        {
+            Game newGame = new Game();
+            newGame.StartGame();
+
+            SetStartCard(newGame);
+
+            AddPlayer1Cards(newGame);
+
+            AddPlayer2Cards(newGame);
+
+            AddRemainingCards(newGame);
+
+            AddToDiscardDeck(newGame);
+
+            SetCardBack();
         }
         private void InitialDeck_MouseClick(object sender, MouseEventArgs e)
         {

@@ -17,6 +17,8 @@ namespace Macao
     {
         public Player PlayerTurn { get; set; }
 
+        public Deck StartDeck { get; set; }
+
         public Deck CreateDeck()
         {
             Deck deck = new Deck();
@@ -46,9 +48,10 @@ namespace Macao
 
         }
 
-        public void StartGame(Deck startDeck)
+        public void StartGame()
         {
-            startDeck.Shuffle();
+            StartDeck = CreateDeck();
+            StartDeck.Shuffle();
         }
 
         public void ShowHand()
