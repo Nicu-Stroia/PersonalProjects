@@ -8,9 +8,7 @@ namespace Macao
 {
     public class Player
     {
-        public string FisrtName { get; set; }
-
-        public string LastName { get; set; }
+        public string Name { get; set; }
 
         public void LastCard()
         {
@@ -22,9 +20,9 @@ namespace Macao
 
         }
 
-        public void PlaceCard()
+        public void PlaceCard(Card card, Card firstCard)
         {
-
+            firstCard = card;
         }
     }
 }

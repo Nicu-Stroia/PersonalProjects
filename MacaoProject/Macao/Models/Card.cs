@@ -23,9 +23,15 @@ namespace Macao
             Picture = image;
         }
 
-        public void Validation()
+        public bool Validation(Card card, Card firstCard)
         {
-
+            Player player = new Player();
+            if(firstCard.Value == card.Value || firstCard.Symbol == card.Symbol)
+            {
+                player.PlaceCard(card, firstCard);
+                return true;
+            }
+            return false;
         }
     }
 }

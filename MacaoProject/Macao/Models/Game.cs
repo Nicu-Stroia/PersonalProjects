@@ -15,9 +15,15 @@ namespace Macao
 {
     public class Game
     {
-        public Player PlayerTurn { get; set; }
+        public Player PlayerTurn { get; set; } = new Player();
+
+        public Card StartCard { get; set; }
 
         public Deck StartDeck { get; set; }
+
+        public Deck Player1Deck { get; set; } = new Deck();
+
+        public Deck Player2Deck { get; set; } = new Deck();
 
         public Deck CreateDeck()
         {

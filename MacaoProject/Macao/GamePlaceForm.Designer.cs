@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.Player1 = new System.Windows.Forms.Label();
+            this.Player2 = new System.Windows.Forms.Label();
             this.InitialCard = new System.Windows.Forms.PictureBox();
             this.Player1Card5 = new System.Windows.Forms.PictureBox();
             this.Player1Card4 = new System.Windows.Forms.PictureBox();
@@ -58,23 +58,23 @@
             ((System.ComponentModel.ISupportInitialize)(this.DiscardDeck)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // Player1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(264, 199);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Player1 cards";
+            this.Player1.AutoSize = true;
+            this.Player1.Location = new System.Drawing.Point(264, 199);
+            this.Player1.Name = "Player1";
+            this.Player1.Size = new System.Drawing.Size(90, 16);
+            this.Player1.TabIndex = 1;
+            this.Player1.Text = "Player1 cards";
             // 
-            // label2
+            // Player2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(264, 808);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 16);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Player2 cards";
+            this.Player2.AutoSize = true;
+            this.Player2.Location = new System.Drawing.Point(264, 808);
+            this.Player2.Name = "Player2";
+            this.Player2.Size = new System.Drawing.Size(90, 16);
+            this.Player2.TabIndex = 2;
+            this.Player2.Text = "Player2 cards";
             // 
             // InitialCard
             // 
@@ -93,6 +93,7 @@
             this.Player1Card5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Card5.TabIndex = 5;
             this.Player1Card5.TabStop = false;
+            this.Player1Card5.Click += new System.EventHandler(this.Player1Card5_Click);
             // 
             // Player1Card4
             // 
@@ -102,6 +103,7 @@
             this.Player1Card4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Card4.TabIndex = 6;
             this.Player1Card4.TabStop = false;
+            this.Player1Card4.Click += new System.EventHandler(this.Player1Card4_Click);
             // 
             // Player1Card3
             // 
@@ -111,6 +113,7 @@
             this.Player1Card3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Card3.TabIndex = 7;
             this.Player1Card3.TabStop = false;
+            this.Player1Card3.Click += new System.EventHandler(this.Player1Card3_Click);
             // 
             // Player1Card2
             // 
@@ -120,6 +123,7 @@
             this.Player1Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Card2.TabIndex = 8;
             this.Player1Card2.TabStop = false;
+            this.Player1Card2.Click += new System.EventHandler(this.Player1Card2_Click);
             // 
             // Player1Card1
             // 
@@ -129,6 +133,7 @@
             this.Player1Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player1Card1.TabIndex = 9;
             this.Player1Card1.TabStop = false;
+            this.Player1Card1.Click += new System.EventHandler(this.Player1Card1_Click);
             // 
             // Player2Card5
             // 
@@ -138,6 +143,7 @@
             this.Player2Card5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Card5.TabIndex = 10;
             this.Player2Card5.TabStop = false;
+            this.Player2Card5.Click += new System.EventHandler(this.Player2Card5_Click);
             // 
             // Player2Card4
             // 
@@ -147,6 +153,7 @@
             this.Player2Card4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Card4.TabIndex = 11;
             this.Player2Card4.TabStop = false;
+            this.Player2Card4.Click += new System.EventHandler(this.Player2Card4_Click);
             // 
             // Player2Card3
             // 
@@ -156,6 +163,7 @@
             this.Player2Card3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Card3.TabIndex = 12;
             this.Player2Card3.TabStop = false;
+            this.Player2Card3.Click += new System.EventHandler(this.Player2Card3_Click);
             // 
             // Player2Card2
             // 
@@ -165,6 +173,7 @@
             this.Player2Card2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Card2.TabIndex = 13;
             this.Player2Card2.TabStop = false;
+            this.Player2Card2.Click += new System.EventHandler(this.Player2Card2_Click);
             // 
             // Player2Card1
             // 
@@ -174,6 +183,7 @@
             this.Player2Card1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.Player2Card1.TabIndex = 14;
             this.Player2Card1.TabStop = false;
+            this.Player2Card1.Click += new System.EventHandler(this.Player2Card1_Click);
             // 
             // InitialDeck
             // 
@@ -212,8 +222,8 @@
             this.Controls.Add(this.Player1Card4);
             this.Controls.Add(this.Player1Card5);
             this.Controls.Add(this.InitialCard);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Player2);
+            this.Controls.Add(this.Player1);
             this.Name = "GamePlaceForm";
             this.Text = "Welcome to macao game!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -237,8 +247,8 @@
         }
 
         #endregion
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label Player1;
+        private System.Windows.Forms.Label Player2;
         private System.Windows.Forms.PictureBox InitialCard;
         private System.Windows.Forms.PictureBox Player1Card5;
         private System.Windows.Forms.PictureBox Player1Card4;
