@@ -10,19 +10,23 @@ namespace Macao
     {
         public string Name { get; set; }
 
-        public void LastCard()
-        {
+        public int CardPositionX { get; set; }
 
+        public int CardPositionY { get; set; }
+
+        public Deck Deck { get; set; } = new Deck();
+
+        public void DrawCard(Card selectedCard)
+        {
+           Deck.Cards.Add(selectedCard);
         }
 
-        public void DrawCard()
+        public void PlaceCard(Card topCard, Card playerCard)
         {
-
-        }
-
-        public void PlaceCard(Card card, Card firstCard)
-        {
-            firstCard = card;
+            topCard.Value = playerCard.Value;
+            topCard.Symbol = playerCard.Symbol;
+            topCard.Picture = playerCard.Picture;
+            Deck.Cards.Remove(playerCard);
         }
     }
 }

@@ -1,271 +1,333 @@
-﻿using Macao.Models;
+﻿using Macao.Enums;
+using Macao.Models;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
-using System.Security.AccessControl;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
+using System.Xml;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Macao
 {
     public partial class GamePlaceForm : Form
     {
-        public List<PictureBox> Player1Cards {  get; set; } = new List<PictureBox>();
+        private List<PictureBox> DrawDeckPictureBoxes { get; set; } = new List<PictureBox>();
 
-        public List<PictureBox> Player2Cards { get; set; } = new List<PictureBox>();
+        private List<PictureBox> DiscardDeckPictureBoxes { get; set; } = new List<PictureBox>();
 
-        public List<PictureBox> RemainingCards { get; set; } = new List<PictureBox>();
 
-        public List<PictureBox> DiscardCards { get; set; } = new List<PictureBox>();
-
-        Game newGame = new Game();
+        private Game newGame = new Game();
 
         public GamePlaceForm()
         {
             InitializeComponent();
+
+            FormClosing += CloseApplication;
         }
 
-        private void SetStartCard(Game game)
+        private void CloseApplication(object sender, FormClosingEventArgs e)
         {
-            game.StartCard = game.StartDeck.Cards[0];
-            game.StartDeck.Cards.Remove(game.StartCard);
-            InitialCard.Image = Image.FromFile(game.StartCard.Picture);
+            Application.Exit();
         }
 
-        private void AddPlayer1Cards(Game game)
+        private void CreatePictureBox(PictureBox card, int posX, int posY)
         {
-            Player1Cards.Add(Player1Card1);
-            Player1Cards.Add(Player1Card2);
-            Player1Cards.Add(Player1Card3);
-            Player1Cards.Add(Player1Card4);
-            Player1Cards.Add(Player1Card5);
+            card.Size = new Size(130, 180);
+            card.Location = new Point(posX, posY);
+            card.BorderStyle = BorderStyle.FixedSingle;
+            card.SizeMode = PictureBoxSizeMode.StretchImage;
+            card.Click += ClickOnACard;
+            this.Controls.Add(card);
+        }
 
-            Card randomPlayerCard = new Card();
-            foreach (PictureBox pictureCard in Player1Cards)
+        private void SetStartCard()
+        {
+            PictureBox initialCard = new PictureBox();
+            int posX = 460;
+            int posY = 310;
+            CreatePictureBox(initialCard, posX, posY);
+            initialCard.Image = Image.FromFile(newGame.TopCard.Picture);
+        }
+
+        private void CreatePictureBoxesForPlayerCards(Player player)
+        {
+            for (int i = 0; i < player.Deck.Cards.Count; i++)
             {
-                randomPlayerCard = game.StartDeck.Cards[0];
-                game.Player1Deck.Cards.Add(randomPlayerCard);
-                pictureCard.Image = Image.FromFile(randomPlayerCard.Picture);
-                game.StartDeck.Cards.Remove(randomPlayerCard);
+                Card playerCard = player.Deck.Cards[i];
+
+                PictureBox pictureBox = new PictureBox();
+                CreatePictureBox(pictureBox, player.CardPositionX, player.CardPositionY);
+
+                player.CardPositionX += 80;
+                pictureBox.Tag = playerCard;
+                pictureBox.Image = Image.FromFile(playerCard.Picture);
             }
         }
 
-        private void AddPlayer2Cards(Game game)
+        private void AddPictureBoxesForDrawDeck()
         {
-            Player2Cards.Add(Player2Card1);
-            Player2Cards.Add(Player2Card2);
-            Player2Cards.Add(Player2Card3);
-            Player2Cards.Add(Player2Card4);
-            Player2Cards.Add(Player2Card5);
-
-            Card randomPlayerCard = new Card();
-            foreach (PictureBox pictureCard in Player2Cards)
-            {
-                randomPlayerCard = game.StartDeck.Cards[0];
-                game.Player2Deck.Cards.Add(randomPlayerCard);
-                pictureCard.Image = Image.FromFile(randomPlayerCard.Picture);
-                game.StartDeck.Cards.Remove(randomPlayerCard);
-            }
-        }
-
-        private void AddRemainingCards(Game game)
-        {
-            int startDeckSize = game.StartDeck.Cards.Count;
-            for (int i = 0; i < startDeckSize; i++)
+            int drawDeckSize = newGame.DrawDeck.Cards.Count;
+            for (int i = 0; i < drawDeckSize; i++)
             {
                 PictureBox pictureCardsInitialDeck = new PictureBox();
-                RemainingCards.Add(pictureCardsInitialDeck);
+                DrawDeckPictureBoxes.Add(pictureCardsInitialDeck);
             }
 
-            Card randomCard = new Card();
             int cardCount = 0;
-            foreach(PictureBox pictureCard in RemainingCards)
+            foreach (PictureBox pictureCard in DrawDeckPictureBoxes)
             {
-                randomCard = game.StartDeck.Cards[cardCount];
+                Card randomCard = newGame.DrawDeck.Cards[cardCount];
+                pictureCard.Tag = randomCard;
                 pictureCard.Image = Image.FromFile(randomCard.Picture);
                 cardCount++;
             }
         }
 
-        private void AddToDiscardDeck()
+        private void RebuildDrawDeckPictureBoxes()
         {
-            foreach (PictureBox pictureCard in RemainingCards)
+            if(DrawDeckPictureBoxes.Count != 0)
             {
-                DiscardCards.Add(pictureCard);
+                DrawDeckPictureBoxes.Clear();
             }
+            AddPictureBoxesForDrawDeck();
         }
 
-        private void SetCardBack()
+        private void SetReaminingDeckBack()
         {
-            Deck deck = new Deck();
-            deck.CardBack.Picture = MacaoConstants.BackCardImagePath;
-            InitialDeck.Image = Image.FromFile(deck.CardBack.Picture);
+            int posX = 1000;
+            int posY = 310;
+            PictureBox pictureCardBack = new PictureBox();
+            CreatePictureBox(pictureCardBack, posX, posY);
+            newGame.DrawDeck.CardBack.Picture = MacaoConstants.BackCardImagePath;
+            pictureCardBack.Image = Image.FromFile(newGame.DrawDeck.CardBack.Picture);
+
         }
 
-        private void WhoStarts(Game game)
+        private void SetFirstPlayer()
         {
+            int playerOrder;
             Random randomTurn = new Random();
-            int playerTurn = 0;
-            if (playerTurn == 0)
+            playerOrder = randomTurn.Next(1, 3);
+            newGame.SetStartingPlayer(playerOrder);
+            if (playerOrder == 1)
             {
-                playerTurn = randomTurn.Next(1, 3);
-            }
-            if (playerTurn == 1)
-            {
-                game.PlayerTurn.Name = Player1.Text;
                 MessageBox.Show("Player1 starts");
+                HighlightPlayerName();
             }
-            if (playerTurn == 2)
+            if (playerOrder == 2)
             {
-                game.PlayerTurn.Name = Player2.Text;
                 MessageBox.Show("Player2 starts");
+                HighlightPlayerName();
             }
         }
 
-        private bool ManageTurn(Label playerLabel)
-        {
-            if (playerLabel.Text == newGame.PlayerTurn.Name)
-            {
-                if(playerLabel.Text == Player1.Text)
-                {
-                    newGame.PlayerTurn.Name = Player2.Text;
-                }
-                if(playerLabel.Text == Player2.Text)
-                {
-                    newGame.PlayerTurn.Name = Player1.Text;
-                }
-                return true;
-            }
-            else
-            {
-                MessageBox.Show("It's the other player's turn");
-                return false;
-            }
-        }
+
 
         private void GamePlaceForm_Load(object sender, EventArgs e)
         {
             newGame.StartGame();
 
-            SetStartCard(newGame);
+            SetStartCard();
 
-            AddPlayer1Cards(newGame);
+            CreatePictureBoxesForPlayerCards(newGame.Player1);
+            CreatePictureBoxesForPlayerCards(newGame.Player2);
 
-            AddPlayer2Cards(newGame);
+            AddPictureBoxesForDrawDeck();
 
-            AddRemainingCards(newGame);
+            SetReaminingDeckBack();
 
-            SetCardBack();
-
-            WhoStarts(newGame);
+            SetFirstPlayer();
         }
-        private void InitialDeck_MouseClick(object sender, MouseEventArgs e)
+
+        private void ArrangePlayerCards(Player player)
         {
-            if (RemainingCards.Count > 0)
+            player.CardPositionX += 80;
+            if (player.CardPositionX > 1340)
             {
-                DiscardDeck.Image = RemainingCards[0].Image;
-                RemainingCards.RemoveAt(0);
-            }
-            if (RemainingCards.Count == 0)
-            {
-                InitialDeck.Image = null;
-                MessageBox.Show("There are no more cards");
+                player.CardPositionX = 300;
+                player.CardPositionY += 100;
             }
         }
 
-        private void ClickOnACard(PictureBox pictureCard, Card card)
+        private void DrawButton_Click(object sender, EventArgs e)
         {
-            if(card.Validation(card, newGame.StartCard) == true && pictureCard.Image != null)
+            if (newGame.DrawDeck.Cards.Count > 0)
             {
-                newGame.StartCard = card;
-                InitialCard.Image = pictureCard.Image;
-                pictureCard.Image = null;
+                PictureBox drawCardPicture = new PictureBox();
+                Card drawnCard = newGame.DrawDeck.Cards[0];
+                if (newGame.PlayerTurn == newGame.Player1.Name)
+                {
+                    drawCardPicture = DrawDeckPictureBoxes[0];
+
+                    CreatePictureBox(drawCardPicture, newGame.Player1.CardPositionX, newGame.Player1.CardPositionY);
+                    ArrangePlayerCards(newGame.Player1);
+
+                    newGame.Player1.DrawCard(drawnCard);
+
+                    HighlightAndSwitchTurn();
+                }
+                else
+                {
+                    drawCardPicture = DrawDeckPictureBoxes[0];
+
+                    CreatePictureBox(drawCardPicture, newGame.Player2.CardPositionX, newGame.Player2.CardPositionY);
+                    ArrangePlayerCards(newGame.Player2);                   
+                   
+                    newGame.Player2.DrawCard(drawnCard);
+
+                    HighlightAndSwitchTurn();
+                }
+                newGame.DrawDeck.Cards.RemoveAt(0);
+                DrawDeckPictureBoxes.RemoveAt(0);
+            }
+            else
+            {
+                MessageBox.Show("Press the 'Rebuild Draw Deck' button to regenerate the draw deck.");
             }
         }
 
-        private void Player1Card1_Click(object sender, EventArgs e)
+        private void RebuildDrawDeckButton_Click(object sender, EventArgs e)
         {
-            if (ManageTurn(Player1) == true)
+            if (newGame.IsDrawDeckRebuildNeeded())
             {
-                ClickOnACard(Player1Card1, newGame.Player1Deck.Cards[0]);
+                newGame.RebuidDrawDeck();
+                RebuildDrawDeckPictureBoxes();
             }
+            else
+            {
+                MessageBox.Show("The draw deck already contains the cards.");
+            }
+        }
+
+        private void HighlightPlayerName()
+        {
+            if (newGame.IsAllowedToPlaceCard(newGame.Player1))
+            {
+                Player1Label.Font = new Font(Player1Label.Font, FontStyle.Underline);
+                Player2Label.Font = new Font(Player2Label.Font, FontStyle.Regular);
+            }
+            else
+            {
+                Player1Label.Font = new Font(Player1Label.Font, FontStyle.Regular);
+                Player2Label.Font = new Font(Player2Label.Font, FontStyle.Underline);
+            }
+        }
+
+        private void AdjustTopCard(PictureBox clickedCard, Card topCard, Card playerCard, Player currentPlayer)
+        {
+            currentPlayer.PlaceCard(topCard, playerCard);
+            newGame.DiscardDeck.AddToDiscardDeck(playerCard);
+
+            clickedCard.Location = new Point(460, 310);
+            clickedCard.BringToFront();
+
+        }
+
+        private void HighlightAndSwitchTurn()
+        {
+            newGame.SwitchTurn();
+            HighlightPlayerName();
+        }
+
+        private void AddPictureBoxesForCardsToDraw(Player afectedPlayer, int numberOfCards)
+        {
+            PictureBox drawnCard = null;
+            if (DrawDeckPictureBoxes.Count < numberOfCards)
+            {
+                RebuildDrawDeckPictureBoxes();
+            }
+            for (int i = 1; i <= numberOfCards; i++)
+            {
+                drawnCard = DrawDeckPictureBoxes[0];
+                CreatePictureBox(drawnCard, afectedPlayer.CardPositionX, afectedPlayer.CardPositionY);
+
+                ArrangePlayerCards(afectedPlayer);
+
+                DrawDeckPictureBoxes.RemoveAt(0);
+                newGame.DrawDeck.Cards.RemoveAt(0);
+            }
+        }
+
+        private void DisplayCardsToDraw(Player currentPlayer, int numberOfCards)
+        {
             
-        }
-
-        private void Player1Card2_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player1) == true)
+            if (currentPlayer.Name == newGame.Player1.Name)
             {
-                ClickOnACard(Player1Card2, newGame.Player1Deck.Cards[1]);
+                AddPictureBoxesForCardsToDraw(newGame.Player2, numberOfCards);
+            }
+            else
+            {
+                AddPictureBoxesForCardsToDraw(newGame.Player1, numberOfCards);
             }
         }
 
-        private void Player1Card3_Click(object sender, EventArgs e)
+        private void DisplayWinner(Player currentPlayer)
         {
-            if (ManageTurn(Player1) == true)
+            if (newGame.IsWinner(currentPlayer))
             {
-                ClickOnACard(Player1Card3, newGame.Player1Deck.Cards[2]);
+                MessageBox.Show(currentPlayer.Name + " win the game");
+                this.Close();
             }
         }
 
-        private void Player1Card4_Click(object sender, EventArgs e)
+
+        private void ClickOnACard(object sender, EventArgs e)
         {
-            if (ManageTurn(Player1) == true)
+            PictureBox clickedCard = sender as PictureBox;
+            if (clickedCard != null && clickedCard.Tag is Card playerCard)
             {
-                ClickOnACard(Player1Card4, newGame.Player1Deck.Cards[3]);
+
+                Player playerOwner = newGame.GetCardOwner(playerCard);
+                if (newGame.IsAllowedToPlaceCard(playerOwner))
+                {
+                    if (playerCard.IsMoveValid(newGame.TopCard))
+                    {
+                        AdjustTopCard(clickedCard, newGame.TopCard, playerCard, playerOwner);
+                        if (playerCard.Effect != CardEffectEnum.NoEffect)
+                        {
+                            if (playerCard.Effect == CardEffectEnum.ChangeColor)
+                            {
+                                ChooseColorForm chooseColor = new ChooseColorForm();
+                                DialogResult result = chooseColor.ShowDialog();
+                                playerCard.Symbol = chooseColor.SelectedOption;
+                                HighlightAndSwitchTurn();
+                            }
+
+                            if (playerCard.Effect == CardEffectEnum.TakeTwoCards)
+                            {
+                                DisplayCardsToDraw(playerOwner, 2);
+                            }
+
+                            if (playerCard.Effect == CardEffectEnum.TakeThreeCards)
+                            {
+                                DisplayCardsToDraw(playerOwner, 3);
+                            }
+
+                            newGame.ApplyEffect(playerCard, playerOwner);
+                        }
+                        else
+                        {
+                            HighlightAndSwitchTurn();
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("This card doesn’t match with the current card");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("It's the other player's turn");
+                }
+                DisplayWinner(playerOwner);
             }
         }
 
-        private void Player1Card5_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player1) == true)
-            {
-                ClickOnACard(Player1Card5, newGame.Player1Deck.Cards[4]);
-            }
-        }
 
-        private void Player2Card1_Click(object sender, EventArgs e)
-        {
-            if(ManageTurn(Player2) == true)
-            {
-                ClickOnACard(Player2Card1, newGame.Player2Deck.Cards[0]);
-            }
-        }
-
-        private void Player2Card2_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player2) == true)
-            {
-                ClickOnACard(Player2Card2, newGame.Player2Deck.Cards[1]);
-            }
-        }
-
-        private void Player2Card3_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player2) == true)
-            {
-                ClickOnACard(Player2Card3, newGame.Player2Deck.Cards[2]);
-            }
-        }
-
-        private void Player2Card4_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player2) == true)
-            {
-                ClickOnACard(Player2Card4, newGame.Player2Deck.Cards[3]);
-            }
-        }
-
-        private void Player2Card5_Click(object sender, EventArgs e)
-        {
-            if (ManageTurn(Player2) == true)
-            {
-                ClickOnACard(Player2Card5, newGame.Player2Deck.Cards[4]);
-            }
-        }
     }
 }

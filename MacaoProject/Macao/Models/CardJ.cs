@@ -5,17 +5,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Macao
+namespace Macao.Models
 {
-    public class CardTwo:Card
+    public class CardJ : Card
     {
         public override CardEffectEnum Effect { get; set; } = CardEffectEnum.TakeTwoCards;
 
-        public CardTwo(Card newCard)
+        public CardJ(Card newCard)
         {
             Value = newCard.Value;
             Symbol = newCard.Symbol;
-            if (Symbol == CardSymbolEnum.Heart)
+            if(Symbol == CardSymbolEnum.Heart)
             {
                 Effect = CardEffectEnum.TakeThreeCards;
             }
