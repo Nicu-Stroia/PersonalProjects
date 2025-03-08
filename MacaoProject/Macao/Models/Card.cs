@@ -1,6 +1,5 @@
 ﻿using Macao.Enums;
-using System;
-using System.Collections.Generic;
+using System.Windows.Forms;
 namespace Macao
 {
     public class Card
@@ -8,6 +7,8 @@ namespace Macao
         public CardValueEnum Value { get; set; }
 
         public CardSymbolEnum Symbol { get; set; }
+
+        public virtual CardEffectEnum Effect { get; set; } = CardEffectEnum.NoEffect;
 
         public string Picture { get; set; }
 
@@ -23,9 +24,21 @@ namespace Macao
             Picture = image;
         }
 
-        public void Validation()
-        {
 
+        public bool IsMoveValid(Card topCard)
+        {
+            if(Value == CardValueEnum.Seven)
+            {
+                return true;
+            }
+            if (topCard.Value == Value || topCard.Symbol == Symbol)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

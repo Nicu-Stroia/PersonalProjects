@@ -8,23 +8,25 @@ namespace Macao
 {
     public class Player
     {
-        public string FisrtName { get; set; }
+        public string Name { get; set; }
 
-        public string LastName { get; set; }
+        public int CardPositionX { get; set; }
 
-        public void LastCard()
+        public int CardPositionY { get; set; }
+
+        public Deck Deck { get; set; } = new Deck();
+
+        public void DrawCard(Card selectedCard)
         {
-
+           Deck.Cards.Add(selectedCard);
         }
 
-        public void DrawCard()
+        public void PlaceCard(Card topCard, Card playerCard)
         {
-
-        }
-
-        public void PlaceCard()
-        {
-
+            topCard.Value = playerCard.Value;
+            topCard.Symbol = playerCard.Symbol;
+            topCard.Picture = playerCard.Picture;
+            Deck.Cards.Remove(playerCard);
         }
     }
 }

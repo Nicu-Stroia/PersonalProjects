@@ -18,7 +18,7 @@ namespace Macao
             InitializeComponent();
         }
 
-        private void StartGameBtn_Click(object sender, EventArgs e)
+        private void StartGameButton_Click(object sender, EventArgs e)
         {
             GamePlaceForm gamePlace = new GamePlaceForm();
             gamePlace.Show();

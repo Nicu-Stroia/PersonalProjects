@@ -1,4 +1,5 @@
 ﻿using Macao.Enums;
+using Macao.Models;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -15,15 +16,23 @@ namespace Macao
     {
         public List<Card> Cards { get; set; } = new List<Card>();
 
-        public Card CardBack { get; set; } = new Card();
+        public Card CardBack {  get; set; } = new Card();
 
         public Deck() { }
 
         public void Shuffle()
         {
             Random shuffle = new Random();
-            int cardsSize = Cards.Count;
+            int cardsSize;
             int randomIndex;
+            if(Cards.Count < 41)
+            {
+                cardsSize = Cards.Count-1;
+            }
+            else
+            {
+                cardsSize = Cards.Count;
+            }
             for (int i = 0; i < Cards.Count; i++)
             {
                 randomIndex = shuffle.Next(cardsSize);
@@ -33,10 +42,9 @@ namespace Macao
             }
         }
 
-        public void Move(List<Card> discardCards)
+        public void AddToDiscardDeck(Card currentCard)
         {
-            discardCards.AddRange(Cards);
-            Cards.Clear();
+            Cards.Add(currentCard);
         }
     }
 }

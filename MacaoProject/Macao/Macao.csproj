@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChooseColorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChooseColorForm.Designer.cs">
+      <DependentUpon>ChooseColorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Enums\CardEffectEnum.cs" />
     <Compile Include="Enums\CardSymbolEnum.cs" />
     <Compile Include="Enums\CardValueEnum.cs" />
     <Compile Include="GamePlaceForm.cs">
@@ -55,6 +62,7 @@
       <DependentUpon>GamePlaceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Models\CardA.cs" />
+    <Compile Include="Models\CardJ.cs" />
     <Compile Include="Models\CardSeven.cs" />
     <Compile Include="Models\CardTwo.cs" />
     <Compile Include="Models\Card.cs" />
@@ -70,6 +78,9 @@
     <Compile Include="Models\Player.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ChooseColorForm.resx">
+      <DependentUpon>ChooseColorForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GamePlaceForm.resx">
       <DependentUpon>GamePlaceForm.cs</DependentUpon>
     </EmbeddedResource>

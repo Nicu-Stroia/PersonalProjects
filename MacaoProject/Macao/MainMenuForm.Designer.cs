@@ -28,28 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.StartGameBtn = new System.Windows.Forms.Button();
+            this.StartGameButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // StartGameBtn
+            // StartGameButton
             // 
-            this.StartGameBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.StartGameBtn.Location = new System.Drawing.Point(930, 450);
-            this.StartGameBtn.Name = "StartGameBtn";
-            this.StartGameBtn.Size = new System.Drawing.Size(230, 60);
-            this.StartGameBtn.TabIndex = 0;
-            this.StartGameBtn.Text = "StartGame";
-            this.StartGameBtn.UseVisualStyleBackColor = true;
-            this.StartGameBtn.Click += new System.EventHandler(this.StartGameBtn_Click);
+            this.StartGameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StartGameButton.Location = new System.Drawing.Point(930, 450);
+            this.StartGameButton.Name = "StartGameButton";
+            this.StartGameButton.Size = new System.Drawing.Size(230, 60);
+            this.StartGameButton.TabIndex = 0;
+            this.StartGameButton.Text = "StartGame";
+            this.StartGameButton.UseVisualStyleBackColor = true;
+            this.StartGameButton.Click += new System.EventHandler(this.StartGameButton_Click);
             // 
-            // MainMenu
+            // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1335, 742);
-            this.Controls.Add(this.StartGameBtn);
-            this.Name = "MainMenu";
+            this.Controls.Add(this.StartGameButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "MainMenuForm";
             this.Text = "Welcome to main menu!";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
@@ -58,7 +59,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button StartGameBtn;
+        private System.Windows.Forms.Button StartGameButton;
     }
 }
 
