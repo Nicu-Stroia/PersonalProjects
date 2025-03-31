@@ -6,5 +6,9 @@ public class Main {
         c.Adunare(2);
         c.Scadere(1);
         c.getRezultat();
+
+        AdvancedCalculator cA = new AdvancedCalculator(5);
+        cA.Exponent(-2);
+        cA.getRezultat();
     }
 }
