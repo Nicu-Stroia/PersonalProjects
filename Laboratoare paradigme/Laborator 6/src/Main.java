@@ -3,12 +3,7 @@
 public class Main {
     public static void main(String[] args) {
         Calculator c = new Calculator(5);
-        c.Adunare(2);
-        c.Scadere(1);
-        c.getRezultat();
+        c.Adunare(2).Scadere(1).getRezultat();
 
-        AdvancedCalculator cA = new AdvancedCalculator(5);
-        cA.Exponent(-2);
-        cA.getRezultat();
     }
 }

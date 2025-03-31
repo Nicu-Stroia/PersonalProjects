@@ -9,27 +9,43 @@ public class Calculator {
         this.x = x;
     }
 
-    public double Adunare(double numar){
+    public Calculator Adunare(double numar){
         x += numar;
-        return x;
+        return this;
     }
 
-    public double Scadere(double numar){
+    public Calculator Scadere(double numar){
         x -= numar;
-        return x;
+        return this;
     }
 
-    public double Inmultire(double numar){
+    public Calculator Inmultire(double numar){
         x *= numar;
-        return x;
+        return this;
     }
 
-    public double Impartire(double numar){
+    public Calculator Impartire(double numar){
         if(numar==0){
             throw new ArithmeticException("Nu se poate imparti la 0");
         }
         x/=numar;
-        return x;
+        return this;
+    }
+
+    public Calculator Radical(){
+        if(x<=-1){
+            throw new ArithmeticException("Nu se poate face radical din numere negative");
+        }
+        x=Math.sqrt(x);
+        return this;
+    }
+
+    public Calculator Exponent(int numar){
+        if(x<=-1){
+            x = 1/(Math.pow(x,numar));
+        }
+        x = Math.pow(x,numar);
+        return this;
     }
 
     public void getRezultat(){
