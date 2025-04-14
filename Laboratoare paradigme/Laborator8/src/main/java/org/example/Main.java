@@ -13,9 +13,7 @@ public class Main {
         try {
 
             // Reading file from local directory
-            FileInputStream file = new FileInputStream(
-                    new File("C:\\ProjectsGit\\PersonalProjects\\Laboratoare paradigme\\Laborator8\\src\\TestExcel.xlsx"));
-
+            FileInputStream file = new FileInputStream(new File("C:\\ProjectsGit\\PersonalProjects\\Laboratoare paradigme\\Laborator8\\src\\TestExcel.xlsx"));
             // Create Workbook instance holding reference to
             // .xlsx file
             XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -23,47 +21,47 @@ public class Main {
             // Get first/desired sheet from the workbook
             XSSFSheet sheet = workbook.getSheetAt(0);
 
-            // Iterate through each rows one by one
-            Iterator<Row> rowIterator = sheet.iterator();
+            XSSFWorkbook outputWorkbook = new XSSFWorkbook();
+            XSSFSheet outputSheet = outputWorkbook.createSheet("Modified");
 
-            // Till there is an element condition holds true
-            while (rowIterator.hasNext()) {
+            int rowNum=0;
 
-                Row row = rowIterator.next();
+            for(Row row : sheet) {
+                Row newRow = outputSheet.createRow(rowNum++);
 
-                // For each row, iterate through all the
-                // columns
-                Iterator<Cell> cellIterator
-                        = row.cellIterator();
+                int cellnum = 0;
 
-                while (cellIterator.hasNext()) {
+                for(Cell cell : row) {
+                    Cell newCell = newRow.createCell(cellnum);
 
-                    Cell cell = cellIterator.next();
-
-                    // Checking the cell type and format
-                    // accordingly
-                    switch (cell.getCellType()) {
-
-                        // Case 1
-                        case NUMERIC:
-                            System.out.print(
-                                    cell.getNumericCellValue()
-                                            + " ");
-                            break;
-
-                        // Case 2
-                        case STRING:
-                            System.out.print(
-                                    cell.getStringCellValue()
-                                            + " ");
-                            break;
+                    if(cellnum==row.getLastCellNum()-1 && cell.getCellType() == CellType.NUMERIC){
+                        double newAge=cell.getNumericCellValue()+1;
+                        newCell.setCellValue(newAge);
                     }
-                }
+                    else{
+                        switch (cell.getCellType()) {
 
-                System.out.println("");
+                            // Case 1
+                            case NUMERIC:
+                                newCell.setCellValue(cell.getNumericCellValue());
+                                break;
+
+                            // Case 2
+                            case STRING:
+                                newCell.setCellValue(cell.getStringCellValue());
+                                break;
+                        }
+                    }
+                    cellnum++;
+                }
             }
 
-            // Closing file output streams
+            FileOutputStream outputFile = new FileOutputStream("C:\\ProjectsGit\\PersonalProjects\\Laboratoare paradigme\\Laborator8\\src\\Output.xlsx");
+            outputWorkbook.write(outputFile);
+
+            outputFile.close();
+            workbook.close();
+            outputWorkbook.close();
             file.close();
         }
 
