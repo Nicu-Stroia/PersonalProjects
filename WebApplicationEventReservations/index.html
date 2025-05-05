@@ -3,39 +3,218 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="Style.css">
+    <title>Stikely</title>
 </head>
 <body>
     <nav class="menu">
+        <a href="index.html" class="home-logo">STIKELY</a>
+
+        <div class="hamburger-icon">
+            ☰ EVENTS
+        </div>
+        <div class="side-menu">
+            <div class="close-button">
+                X
+            </div>
+            <ul class="categories-list">
+                <li><a href="Business.html">Business events</a></li>
+                <li><a href="Cultural.html">Cultural Events</a></li>
+                <li><a href="Entertainment.html">Entertaiment Events</a></li>
+                <li><a href="Education.html">Educational Events</a></li>
+                <li><a href="Volunteering.html">Volunteer Events</a></li>
+                <li><a href="Sports.html">Sports Events</a></li>
+            </ul>
+        </div>
+
+        <button class="create-button">Create Event</button>
         <button class="btn-register" id="register">Register</button>
         <button class="btn-log-in">Log In</button>
         <button class="btn-language">
             <span class="language">Language</span>
             <img class="language-image" src="https://icons.veryicon.com/png/o/education-technology/elements-1/language-multilingual.png">
-        </button>
+        </button>  
+
+        <h1 class="main-title">Organize your own <br> event or <br> Join new ones</h1>
+        <p class="site-description">Discover and book the most exciting events! Whether you<br> want to attend a business conference, a cultural festival or a concert,<br> find the perfect event and register now.</p>
+    
+        <img class="join-event-photo" src="ProjectPhotos/JoinEvent.png">
+        <img class="organize-event-photo" src="ProjectPhotos/OrganizeEvent.png">
     </nav>
-
-    <h1 class="main-title">Organize your own <br> event or <br> Join new ones</h1>
-
-    <img class="join-event-photo" src="ProjectPhotos/JoinEvent.png">
-    <img class="organize-event-photo" src="ProjectPhotos/OrganizeEvent.png">
 
     <h2 class="popular-events-title">Popular events</h2>
 
-    <div class="festival-event">
-        <p class="event-title">Festival</p>
-        <img class="event-image" src="ProjectPhotos/Festival.png">
+    <div class="event-card concert-event">
+        <h3 class="event-title">Concert</h3>
+        <img class="event-image" src="ProjectPhotos/Festival.jpg">
+        <div class="card-back">
+            <p class="event-description">Join the music festival and enjoy great music and an unforgettable atmosphere! Let's create amazing memories together.</p>
+            <button class="join-button" data-target="Entertainment.html">Join Event</button>
+        </div>
     </div>
 
-    <div class="charity-event">
-        <p class="event-title">Charity</p>
-        <img class="event-image" src="ProjectPhotos/Charity.png">
+    <div class="event-card charity-event">
+        <h3 class="event-title">Charity</h3>
+        <img class="event-image" src="ProjectPhotos/Charity.jpg">
+        <div class="card-back">
+            <p class="event-description">Join a charity event and help us make a difference! Every donation brings us one step closer to change for the better.</p>
+            <button class="join-button" data-target="Volunteering.html">Join Event</button>
+        </div>
     </div>
 
-    <div class="party-event">
-        <p class="event-title">Party</p>
-        <img class="event-image" src="ProjectPhotos/Party.png">
+    <div class="event-card party-event">
+        <h3 class="event-title-landscape event-title">Party</h3>
+        <img class="event-image" src="ProjectPhotos/Party.jpg">
+        <div class="card-back-landscape  card-back">
+            <p class="event-description-landscape event-description">Come to the party and experience unforgettable moments with friends and great music! Make this evening something special.</p>
+            <button class="join-button" data-target="Entertainment.html">Join Event</button>
+        </div>
     </div>
+
+    <div class="event-card marathon-event">
+        <h3 class="event-title">Marathon</h3>
+        <img class="event-image" src="ProjectPhotos/Marathon.jpg">
+        <div class="card-back">
+            <p class="event-description">Come to the party and experience unforgettable moments with friends and great music! Make this evening something special.</p>
+            <button class="join-button" data-target="Sports.html">Join Event</button>
+        </div>
+    </div>
+
+    <div class="event-card workshop-event">
+        <h3 class="event-title-landscape event-title">Workshop</h3>
+        <img class="event-image" src="ProjectPhotos/Workshop.jpg">
+        <div class="card-back-landscape  card-back">
+            <p class="event-description-landscape event-description">Participate in the workshop and learn new skills in an interactive environment! The perfect opportunity for personal and professional development.</p>
+            <button class="join-button" data-target="Education.html">Join Event</button>
+        </div>
+    </div>
+
+    <div class="event-card conference-event">
+        <h3 class="event-title-landscape event-title">Conference</h3>
+        <img class="event-image" src="ProjectPhotos/Conference.jpg">
+        <div class="card-back-landscape card-back">
+            <p class="event-description-landscape event-description">Discover the latest trends in the field, share experiences with experts, create valuable professional connections, and leave with concrete ideas to accelerate your projects.</p>
+            <button class="join-button" data-target="Business.html">Join Event</button>
+        </div>
+    </div>
+
+    <div class="event-card theater-event">
+        <h3 class="event-title-landscape event-title">Theater</h3>
+        <img class="event-image" src="ProjectPhotos/Theater.jpg">
+        <div class="card-back-landscape card-back">
+            <p class="event-description-landscape event-description">Theater offers emotion and living art, stimulates the imagination, develops empathy and supports the local community.</p>
+            <button class="join-button" data-target="Cultural.html">Join Event</button>
+        </div>
+    </div>
+
+    <section class="how-it-works">
+        <p class="section-subtitle">3 SIMPLE STEPS</p>
+        <h2 class="section-title">How it works?</h2>
+
+        <div class="step-card sign-up-card" data-target="ClientRegister.html">
+            <h3 class="title-card">Sign Up</h3>
+            <p class="card-description">Create a free account or continue as a guest if you don't want to have an account.</p>
+        </div>
+
+        <div class="step-card create-event-card" data-target="CreateEvent.html">
+            <h3 class="title-card">Create Event</h3>
+            <p class="card-description">Fill in the details (title, dates, tickets).</p>
+        </div>
+
+        <div class="step-card tickets-card" data-target="CreateEvent.html">
+            <h3 class="title-card">Sell Tickets</h3>
+            <p class="card-description">Publish the event and sell tickets online.</p>
+        </div>
+    </section>
+
+        <section class="testimonials-carousel">
+            <div class="testimonials-zone">
+                <h2 class="testimonials-title">What Our Users Say</h2>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">Stikely made organizing my first event a breeze. Everything from ticketing to check-in worked flawlessly!</p>
+                        <p class="testimonial-author">— Maria Popescu, Event Planner</p>
+                    </div>
+    
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">Signing up was effortless, and I could manage attendees seamlessly through the intuitive interface.</p>
+                        <p class="testimonial-author">— Andrei Ionescu, Event Coordinator</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">Creating customized ticket types and discounts took just a few clicks, boosting our sales overnight.</p>
+                        <p class="testimonial-author">— Ioana Marin, Marketing Manager</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">The live concert booking process was seamless and the QR ticket worked perfectly at entry.</p>
+                        <p class="testimonial-author">— Raluca Georgescu, Music Enthusiast</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">Joining the charity fundraiser was so easy—donation options and ticket tiers made giving back simple.</p>
+                        <p class="testimonial-author">— Mihai Vasilescu, Philanthropist</p>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                        <p class="testimonial-text">Booking theatre tickets was a breeze—I loved the seat selection map and mobile ticket delivery.</p>
+                        <p class="testimonial-author">— Elena Radu, Theatre Lover</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="about-column">
+                <h2 class="footer-logo">STIKELY</h2>
+                <p>Your trusted platform for booking unique and memorable events.</p>
+            </div>
+
+            <div class="links-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="">Events</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="">Pricing</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="resources-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><span>Email: </span><a href="">contact@stikleyevents.ro</a></li>
+                    <li><span>Telefon: </span><a href="">+40 123 456 789</a></li>
+                </ul>
+            </div>
+
+            <div class="social-media">
+                <a href="">Facebook</a>
+                <a href="">Instagram</a>
+                <a href="">Twitter</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 STIKELY. All rights reserved.</p>
+            </div>
+        </footer>
+    <script src="Script.js" defer></script>
+      
 </body>
 </html>

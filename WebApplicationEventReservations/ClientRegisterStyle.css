@@ -1,0 +1,127 @@
+.register-form{
+    background-color: #f9f9f9;
+    color: black;
+    border-left: 5px solid #0b3d91;
+    margin-left: 850px;
+    margin-right: 200px;
+    margin-top: -448px;
+    padding-bottom: 80px;
+}
+
+.register-type-title{
+    padding-left: 160px;
+}
+
+label{
+    color: #0b3d91;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+input{
+    margin-top: 5px;
+    margin-bottom: 20px;
+    padding-right: 25px;
+}
+
+.register-image{
+    width: 40px;
+    margin-top: 40px;
+    margin-left: 60px;
+}
+
+.register-title{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 120px;
+    margin-top: -45px;
+    color: #0b3d91;
+}
+
+li{
+    margin-left: 47px;
+    margin-top: 40px;
+    color: #333333;
+}
+
+.benefit-title{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 40px;
+    margin-top: -30px;
+    color: #0b3d91;
+}
+
+.benefit-title-exclusie-offers{
+    font-family: 'Poppins', sans-serif;
+    margin-left: 40px;
+    margin-top: -27px;
+    color: #0b3d91;
+}
+
+.benefit-image{
+    width: 30px;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+.benefit-description{
+    font-family: 'Arial', sans-serif;
+    margin-top: -5px;
+    color: #333333;
+}
+
+.benefit{
+    color: #FFD700;
+}
+
+.guest-image{
+    width: 40px;
+    margin-top: 150px;
+    margin-left: 58px;
+}
+
+.guest-title{
+    font-family: 'Poppins', sans-serif;
+    color: #0b3d91;
+    margin-top: -48px;
+    margin-left: 120px;
+}
+
+.benefit-image{
+    width: 30px;
+    vertical-align: middle;
+    margin-top: -5px;
+}
+
+.guest-form{
+    background-color: #f9f9f9;
+    color: black;
+    border-left: 5px solid #0b3d91;
+    margin-left: 850px;
+    margin-right: 200px;
+    margin-top: -400px;
+    padding-bottom: 200px;
+}
+
+.register-type-comparation{
+    border-collapse: collapse;
+    border: solid black;
+    margin-top: 150px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+th, tr, td{
+    border: solid black;
+    width:10%;
+    text-align: center;
+}
+
+th{
+    vertical-align: middle;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.benefit-status{
+    width: 30px;
+}
