@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Style.css">
-    <script src="script.js" defer></script>
     <title>Educational Events</title>
 </head>
 <body>
-    <nav>
+    <nav class="menu">
+        <a href="index.html" class="home-logo">STIKELY</a>
+
         <div class="hamburger-icon">
             ☰ EVENTS
         </div>
@@ -22,8 +23,205 @@
                 <li><a href="Entertainment.html">Entertaiment Events</a></li>
                 <li><a href="Education.html">Educational Events</a></li>
                 <li><a href="Volunteering.html">Volunteer Events</a></li>
+                <li><a href="Sports.html">Sports Events</a></li>
             </ul>
         </div>
+
+        <button class="explore-button">Explore Events</button>
+        <button class="create-button">Create Event</button>
+        <button class="btn-register" id="register">Register</button>
+        <button class="btn-log-in">Log In</button>
+        <button class="btn-language">
+            <span class="language">Language</span>
+            <img class="language-image" src="https://icons.veryicon.com/png/o/education-technology/elements-1/language-multilingual.png">
+        </button>
+        
+        <section class="hero">
+            <div class="hero-div">
+                <h1>Your Educational Event Portal</h1>
+                <p>Manage workshops, seminars and courses with ease.</p>
+                <button class="primary-button">Create Event</button>
+                <img class="hero-image" src="ProjectPhotos/Educational.jpg">
+            </div>
+        </section>
     </nav>
+
+    <section class="features">
+        <h2 class="features-title">Key Educational Features</h2>
+        <div class="features-zone">
+            <div class="feature-card">
+                <img src="ProjectPhotos/interactiveworkshops.png" class="feature-icon">
+                <h3 class="feature-title">Interactive Workshops</h3>
+                <p class="feature-description">Hands-on sessions with live Q&A to foster active learning and engagement.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/coursebuilder.png" class="feature-icon">
+                <h3 class="feature-title">Custom Course Builder</h3>
+                <p class="feature-description">Design modular curricula, upload materials and set quizzes without any coding.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/progresstracking.png" class="feature-icon">
+                <h3 class="feature-title">Progress Tracking</h3>
+                <p class="feature-description">Monitor attendance, quiz scores and engagement with real-time analytics.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/certificateandbadges.png" class="feature-icon">
+                <h3 class="feature-title">Certification & Badges</h3>
+                <p class="feature-description">Automatically issue certificates and badges upon course completion.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <h2 class="cases-title">Perfect For</h2>
+        <div class="cases">
+
+            <div class="first-event">
+                <img src="ProjectPhotos/InteractiveWorkshops.jpg" class="first-event-photo">
+                <h3 class="case-title">Interactive Workshops</h3>
+            </div>
+
+            <div class="second-event">
+                <img src="ProjectPhotos/ExpertSeminars.jpg" class="second-event-photo">
+                <h3 class="case-title">Expert Seminars</h3>
+            </div>
+
+            <div class="third-event">
+                <img src="ProjectPhotos/ProfessionalConferences.jpg" class="third-event-photo">
+                <h3 class="case-title">Professional Conferences</h3>
+            </div>
+
+            <div class="fourth-event">
+                <img src="ProjectPhotos/Webinars.jpg" class="fourth-event-photo">
+                <h3 class="case-title">Webinars<h3>
+            </div>
+
+            <div class="fifth-event">
+                <img src="ProjectPhotos/MasterClasses.jpg" class="fifth-event-photo">
+                <h3 class="case-title">Masterclasses</h3>
+            </div>
+
+            <div class="sixth-event">
+                <img src="ProjectPhotos/TrainingSessions.jpg" class="sixth-event-photo">
+                <h3 class="case-title">Training Sessions</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials-carousel">
+        <div class="testimonials-zone events-testimonials">
+            <h2 class="testimonials-title">What Our Cultural Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Interactive workshops boosted knowledge retention and engagement by 50% in our corporate sessions.</p>
+                    </div>
+                    <p class="testimonial-author">— Dr. Andreea Marinescu, Training Manager</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Expert seminars with live Q&A drew industry professionals and enriched our learning outcomes significantly.</p>
+                    </div>
+                    <p class="testimonial-author">— Mihai Popescu, Learning & Development Lead</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Webinars ran flawlessly with integrated polls and chat, increasing remote attendance by 35%.</p>
+                    </div>
+                    <p class="testimonial-author">— Ioana Ionescu, e-Learning Coordinator</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Custom course builder streamlined content delivery and cut preparation time by 40%.</p>
+                    </div>
+                    <p class="testimonial-author">— Ana Georgescu, Education Director</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Progress tracking dashboards provided actionable insights, improving trainee performance markedly.</p>
+                    </div>
+                    <p class="testimonial-author">— Radu Stoica, HR Development Manager</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Certification features automated badge issuance, boosting completion rates and learner motivation.</p>
+                    </div>
+                    <p class="testimonial-author">— Elena Radu, Corporate Trainer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="cta-zone">
+            <h2 class="cta-title">Ready to Host Your Next Cultural Event?</h2>
+            <p class="cta-subtitle">Start now and captivate your audience with unforgettable cultural experiences.</p>
+            <button class="cta-button">Create Events for Free</button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="about-column">
+            <h2 class="footer-logo">STIKELY</h2>
+            <p>Your trusted platform for booking unique and memorable events.</p>
+        </div>
+
+        <div class="links-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="JoinEvents.html">Events</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="Partners.html">Partners</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="resources-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Terms and Conditions</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><span>Email: </span><a href="">contact@stikleyevents.ro</a></li>
+                <li><span>Telefon: </span><a href="">+40 123 456 789</a></li>
+            </ul>
+        </div>
+
+        <div class="social-media">
+            <a href="">Facebook</a>
+            <a href="">Instagram</a>
+            <a href="">Twitter</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 STIKELY. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="Script.js" defer></script>
 </body>
 </html>

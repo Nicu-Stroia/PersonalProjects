@@ -3,9 +3,225 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="Style.css">
     <title>Sports Events</title>
 </head>
 <body>
-    
+    <nav class="menu">
+        <a href="index.html" class="home-logo">STIKELY</a>
+
+        <div class="hamburger-icon">
+            ☰ EVENTS
+        </div>
+        <div class="side-menu">
+            <div class="close-button">
+                X
+            </div>
+            <ul class="categories-list">
+                <li><a href="Business.html">Business events</a></li>
+                <li><a href="Cultural.html">Cultural Events</a></li>
+                <li><a href="Entertainment.html">Entertaiment Events</a></li>
+                <li><a href="Education.html">Educational Events</a></li>
+                <li><a href="Volunteering.html">Volunteer Events</a></li>
+                <li><a href="Sports.html">Sports Events</a></li>
+            </ul>
+        </div>
+
+        <button class="explore-button">Explore Events</button>
+        <button class="create-button">Create Event</button>
+        <button class="btn-register" id="register">Register</button>
+        <button class="btn-log-in">Log In</button>
+        <button class="btn-language">
+            <span class="language">Language</span>
+            <img class="language-image" src="https://icons.veryicon.com/png/o/education-technology/elements-1/language-multilingual.png">
+        </button>
+        
+        <section class="hero">
+            <div class="hero-div">
+                <h1>Your Sports Event Ticketing System</h1>
+                <p>Sell and manage tickets for games, matches and tournaments.</p>
+                <button class="primary-button">Create Event</button>
+                <img class="hero-image" src="ProjectPhotos/Sports.jpg">
+            </div>
+        </section>
+    </nav>
+
+    <section class="features">
+        <h2 class="features-title">Key Sports Features</h2>
+        <div class="features-zone">
+            <div class="feature-card">
+                <img src="ProjectPhotos/livestats.png" class="feature-icon">
+                <h3 class="feature-title">Live Stats</h3>
+                <p class="feature-description">Live score updates, player metrics and heat-maps delivered instantly during the game.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/ARtools.png" class="feature-icon">
+                <h3 class="feature-title">AR Tools</h3>
+                <p class="feature-description">Augmented-reality wayfinding, player info tags and interactive 3D overlays.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/vipconcierge.png" class="feature-icon">
+                <h3 class="feature-title">VIP Concierge</h3>
+                <p class="feature-description">Interactive seat maps, on-demand food & drink orders and express lounge access.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/fanbuzz.png" class="feature-icon">
+                <h3 class="feature-title">Fan Buzz</h3>
+                <p class="feature-description">Live polls, trivia games and custom highlight reels sent straight to fans’ devices.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <h2 class="cases-title">Perfect For</h2>
+        <div class="cases">
+
+            <div class="first-event">
+                <img src="ProjectPhotos/FootballMatches.jpg" class="first-event-photo">
+                <h3 class="case-title">Football Matches</h3>
+            </div>
+
+            <div class="second-event">
+                <img src="ProjectPhotos/BasketballEvents.jpg" class="second-event-photo">
+                <h3 class="case-title">Basketball Games</h3>
+            </div>
+
+            <div class="third-event">
+                <img src="ProjectPhotos/MarathonEvents.jpg" class="third-event-photo">
+                <h3 class="case-title">Marathon</h3>
+            </div>
+
+            <div class="fourth-event">
+                <img src="ProjectPhotos/TennisTournaments.jpg" class="fourth-event-photo">
+                <h3 class="case-title">Tennis Tournaments<h3>
+            </div>
+
+            <div class="fifth-event">
+                <img src="ProjectPhotos/PokerTournaments.jpg" class="fifth-event-photo">
+                <h3 class="case-title">Poker Tournaments</h3>
+            </div>
+
+            <div class="sixth-event">
+                <img src="ProjectPhotos/HandballGames.jpg" class="sixth-event-photo">
+                <h3 class="case-title">Handball Games</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials-carousel">
+        <div class="testimonials-zone events-testimonials">
+            <h2 class="testimonials-title">What Our Sports Event Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">The atmosphere at our championship game was electric—fans praised the seamless ticketing and real-time stats overlays!</p>
+                    </div>
+                    <p class="testimonial-author">— Vlad Petrescu, League Commissioner</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">We saw a 40% jump in VIP bookings for our tennis open, and guests couldn’t stop raving about the exclusive lounge amenities.</p>
+                    </div>
+                    <p class="testimonial-author">— Ana Dobre, Tournament Director</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Streaming our eSports tournament to a global audience was flawless; the low-latency HD feed kept viewers glued to their screens.</p>
+                    </div>
+                    <p class="testimonial-author">— Bianca Florescu, Event Producer</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">On-site AR wayfinding saved so many fans time finding their seats during the hockey playoff—absolute game-changer!.</p>
+                    </div>
+                    <p class="testimonial-author">— Sorin Grigore, Arena Operations Lead</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Our badminton tournament ran smoothly with live brackets and shuttlecock-speed displays—fans loved it!</p>
+                    </div>
+                    <p class="testimonial-author">— Ioan Radu, Tournament Coordinator</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Our marathon saw 20% faster aid-station service with live route alerts—runners loved it!</p>
+                    </div>
+                    <p class="testimonial-author">— Andrei Ionescu, Event Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="cta-zone">
+            <h2 class="cta-title">Ready to Host Your Next Sports Event?</h2>
+            <p class="cta-subtitle">Kick off today and electrify your fans with unforgettable live action.</p>
+            <button class="cta-button">Create Events for Free</button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="about-column">
+            <h2 class="footer-logo">STIKELY</h2>
+            <p>Your trusted platform for booking unique and memorable events.</p>
+        </div>
+
+        <div class="links-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="JoinEvents.html">Events</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="Partners.html">Partners</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="resources-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Terms and Conditions</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><span>Email: </span><a href="">contact@stikleyevents.ro</a></li>
+                <li><span>Telefon: </span><a href="">+40 123 456 789</a></li>
+            </ul>
+        </div>
+
+        <div class="social-media">
+            <a href="">Facebook</a>
+            <a href="">Instagram</a>
+            <a href="">Twitter</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 STIKELY. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="Script.js" defer></script>
 </body>
 </html>

@@ -3,9 +3,137 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="Style.css">
+    <title>Creat Your Event</title>
 </head>
 <body>
     
+     <nav class="menu">
+        <a href="index.html" class="home-logo">STIKELY</a>
+
+        <div class="hamburger-icon">
+            ☰ EVENTS
+        </div>
+        <div class="side-menu">
+            <div class="close-button">
+                X
+            </div>
+            <ul class="categories-list">
+                <li><a href="Business.html">Business events</a></li>
+                <li><a href="Cultural.html">Cultural Events</a></li>
+                <li><a href="Entertainment.html">Entertaiment Events</a></li>
+                <li><a href="Education.html">Educational Events</a></li>
+                <li><a href="Volunteering.html">Volunteer Events</a></li>
+                <li><a href="Sports.html">Sports Events</a></li>
+            </ul>
+        </div>
+
+        <button class="explore-button">Explore Events</button>
+        <button class="create-button">Create Event</button>
+        <button class="btn-register" id="register">Register</button>
+        <button class="btn-log-in">Log In</button>
+        <button class="btn-language">
+            <span class="language">Language</span>
+            <img class="language-image" src="https://icons.veryicon.com/png/o/education-technology/elements-1/language-multilingual.png">
+        </button>
+
+        <h1 class="create-events-title">Host Your Event in Minutes</h1>
+        <p class = "create-events-description">Easily set up your event in moments: upload a striking cover image, add your title, date & time, and specify the venue. Hit “Create Event” and your listing goes live instantly—ready for attendees to discover!</p>
+
+    </nav>
+
+    <section class="create-event">
+        <h2 class="create-event-title">Create a new Event</h2>
+
+        <form method="post" action="create_event.php" enctype="multipart/form-data" class="create-event-form">
+            <p class="create-form-labels">Name</p>
+            <input type="text" name="name" class="create-form-inputs" placeholder="e.g. Popescu">
+
+            <p class="create-form-labels">Surname</p>
+            <input type="text" name="surname" class="create-form-inputs" placeholder="e.g. Alexandru">
+
+            <p class="create-form-labels">Email</p>
+            <input type="email" name="email" class="create-form-inputs" placeholder="e.g. name@gmail.com">
+
+            <p class="create-form-labels">Event Category</p>
+            <input type="text" name="event_category" id="event-category" class="create-form-inputs" placeholder="e.g. Entertainment Event">
+
+            <select class="select-category">
+                <option selected disabled hidden>Browse a category</option>
+                <option value="Business Events" disabled>Business Event</option>
+                <option value="Entertainment Events" disabled>Entertainment Event</option>
+                <option value="Cultural Events" disabled>Cultural Event</option>
+                <option value="Educational Events" disabled>Educational Event</option>
+                <option value="Volunteer Events" disabled>Volunteer Event</option>
+                <option value="Sports Events" disabled>Sports Event</option>
+            </select>
+
+            <p class="create-form-labels">Event Image</p>
+            <input type="file" name="event_image" accept="image/*" id="file-input" class="create-form-inputs">
+            <button class="select-image">Select image</button>
+
+            <p class="create-form-labels">Event Name</p>
+            <input class="create-form-inputs" name="event_title" placeholder="e.g. Rock Concert" required>
+
+            <p class="create-form-labels">Location</p>
+            <input class="create-form-inputs" name="event_location" placeholder="e.g. Sala Palatului" required>
+
+            <p class="create-form-labels">Event Date</p>
+            <input type="date" name="event_date" class="create-form-inputs" required>
+
+            <p class="create-form-labels">Event Time</p>
+            <input type="time" name="event_time" class="create-form-inputs" required>
+
+            <button type="submit" class="create-event-button">Create Event</button>
+        </form>
+    </section>
+
+    <footer class="site-footer">
+            <div class="about-column">
+                <h2 class="footer-logo">STIKELY</h2>
+                <p>Your trusted platform for booking unique and memorable events.</p>
+            </div>
+
+            <div class="links-column">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="JoinEvents.html">Events</a></li>
+                    <li><a href="">About Us</a></li>
+                    <li><a href="Partners.html">Partners</a></li>
+                    <li><a href="">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="resources-column">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="">FAQ</a></li>
+                    <li><a href="">Blog</a></li>
+                    <li><a href="">Terms and Conditions</a></li>
+                    <li><a href="">Privacy Policy</a></li>
+                </ul>
+            </div>
+
+            <div class="contact-column">
+                <h3>Contact</h3>
+                <ul>
+                    <li><span>Email: </span><a href="">contact@stikleyevents.ro</a></li>
+                    <li><span>Telefon: </span><a href="">+40 123 456 789</a></li>
+                </ul>
+            </div>
+
+            <div class="social-media">
+                <a href="">Facebook</a>
+                <a href="">Instagram</a>
+                <a href="">Twitter</a>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 STIKELY. All rights reserved.</p>
+            </div>
+        </footer>
+
+    <script src="Script.js" defer></script>
 </body>
 </html>

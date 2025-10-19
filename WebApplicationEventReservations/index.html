@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
     <link rel="stylesheet" href="Style.css">
     <title>Stikely</title>
 </head>
 <body>
+    <div class="wrapper">
     <nav class="menu">
         <a href="index.html" class="home-logo">STIKELY</a>
 
@@ -27,6 +29,7 @@
             </ul>
         </div>
 
+        <button class="explore-button">Explore Events</button>
         <button class="create-button">Create Event</button>
         <button class="btn-register" id="register">Register</button>
         <button class="btn-log-in">Log In</button>
@@ -49,7 +52,7 @@
         <img class="event-image" src="ProjectPhotos/Festival.jpg">
         <div class="card-back">
             <p class="event-description">Join the music festival and enjoy great music and an unforgettable atmosphere! Let's create amazing memories together.</p>
-            <button class="join-button" data-target="Entertainment.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -58,7 +61,7 @@
         <img class="event-image" src="ProjectPhotos/Charity.jpg">
         <div class="card-back">
             <p class="event-description">Join a charity event and help us make a difference! Every donation brings us one step closer to change for the better.</p>
-            <button class="join-button" data-target="Volunteering.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -67,7 +70,7 @@
         <img class="event-image" src="ProjectPhotos/Party.jpg">
         <div class="card-back-landscape  card-back">
             <p class="event-description-landscape event-description">Come to the party and experience unforgettable moments with friends and great music! Make this evening something special.</p>
-            <button class="join-button" data-target="Entertainment.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -76,7 +79,7 @@
         <img class="event-image" src="ProjectPhotos/Marathon.jpg">
         <div class="card-back">
             <p class="event-description">Come to the party and experience unforgettable moments with friends and great music! Make this evening something special.</p>
-            <button class="join-button" data-target="Sports.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -85,7 +88,7 @@
         <img class="event-image" src="ProjectPhotos/Workshop.jpg">
         <div class="card-back-landscape  card-back">
             <p class="event-description-landscape event-description">Participate in the workshop and learn new skills in an interactive environment! The perfect opportunity for personal and professional development.</p>
-            <button class="join-button" data-target="Education.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -94,7 +97,7 @@
         <img class="event-image" src="ProjectPhotos/Conference.jpg">
         <div class="card-back-landscape card-back">
             <p class="event-description-landscape event-description">Discover the latest trends in the field, share experiences with experts, create valuable professional connections, and leave with concrete ideas to accelerate your projects.</p>
-            <button class="join-button" data-target="Business.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
@@ -103,11 +106,12 @@
         <img class="event-image" src="ProjectPhotos/Theater.jpg">
         <div class="card-back-landscape card-back">
             <p class="event-description-landscape event-description">Theater offers emotion and living art, stimulates the imagination, develops empathy and supports the local community.</p>
-            <button class="join-button" data-target="Cultural.html">Join Event</button>
+            <button class="join-button" data-target="JoinEvents.html">Join Event</button>
         </div>
     </div>
 
     <section class="how-it-works">
+
         <p class="section-subtitle">3 SIMPLE STEPS</p>
         <h2 class="section-title">How it works?</h2>
 
@@ -116,15 +120,16 @@
             <p class="card-description">Create a free account or continue as a guest if you don't want to have an account.</p>
         </div>
 
-        <div class="step-card create-event-card" data-target="CreateEvent.html">
-            <h3 class="title-card">Create Event</h3>
-            <p class="card-description">Fill in the details (title, dates, tickets).</p>
+        <div class="step-card tickets-card" data-target="JoinEvents.html">
+            <h3 class="title-card">Enjoy Your Event</h3>
+            <p class="card-description">Sit back, relax, and savor every moment-let us handle the details.</p>
         </div>
 
-        <div class="step-card tickets-card" data-target="CreateEvent.html">
-            <h3 class="title-card">Sell Tickets</h3>
-            <p class="card-description">Publish the event and sell tickets online.</p>
+        <div class="step-card create-event-card" data-target="CreateEvent.html">
+            <h3 class="title-card">Create Event</h3>
+            <p class="card-description">Fill in the details (title, dates, location).</p>
         </div>
+        
     </section>
 
         <section class="testimonials-carousel">
@@ -133,37 +138,49 @@
                 <div class="testimonials-grid">
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">Stikely made organizing my first event a breeze. Everything from ticketing to check-in worked flawlessly!</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">Stikely made organizing my first event a breeze. Everything from ticketing to check-in worked flawlessly!</p>
+                        </div>
                         <p class="testimonial-author">— Maria Popescu, Event Planner</p>
                     </div>
     
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">Signing up was effortless, and I could manage attendees seamlessly through the intuitive interface.</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">Signing up was effortless, and I could manage attendees seamlessly through the intuitive interface.</p>
+                        </div>
                         <p class="testimonial-author">— Andrei Ionescu, Event Coordinator</p>
                     </div>
 
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">Creating customized ticket types and discounts took just a few clicks, boosting our sales overnight.</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">Creating customized ticket types and discounts took just a few clicks, boosting our sales overnight.</p>
+                        </div>
                         <p class="testimonial-author">— Ioana Marin, Marketing Manager</p>
                     </div>
 
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">The live concert booking process was seamless and the QR ticket worked perfectly at entry.</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">The live concert booking process was seamless and the QR ticket worked perfectly at entry.</p>
+                        </div>
                         <p class="testimonial-author">— Raluca Georgescu, Music Enthusiast</p>
                     </div>
 
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">Joining the charity fundraiser was so easy—donation options and ticket tiers made giving back simple.</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">Joining the charity fundraiser was so easy—donation options and ticket tiers made giving back simple.</p>
+                        </div>
                         <p class="testimonial-author">— Mihai Vasilescu, Philanthropist</p>
                     </div>
 
                     <div class="testimonial-card">
                         <img src="ProjectPhotos/user.png" class="testimonial-avatar">
-                        <p class="testimonial-text">Booking theatre tickets was a breeze—I loved the seat selection map and mobile ticket delivery.</p>
+                        <div class="testimonial-text-zone">
+                            <p class="testimonial-text">Booking theatre tickets was a breeze—I loved the seat selection map and mobile ticket delivery.</p>
+                        </div>
                         <p class="testimonial-author">— Elena Radu, Theatre Lover</p>
                     </div>
                 </div>
@@ -179,9 +196,9 @@
             <div class="links-column">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="">Events</a></li>
+                    <li><a href="JoinEvents.html">Events</a></li>
                     <li><a href="">About Us</a></li>
-                    <li><a href="">Pricing</a></li>
+                    <li><a href="Partners.html">Partners</a></li>
                     <li><a href="">Contact</a></li>
                 </ul>
             </div>
@@ -215,6 +232,6 @@
             </div>
         </footer>
     <script src="Script.js" defer></script>
-      
+    </div>
 </body>
 </html>

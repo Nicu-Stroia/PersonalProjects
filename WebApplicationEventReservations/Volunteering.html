@@ -7,7 +7,9 @@
     <title>Volunteering Events</title>
 </head>
 <body>
-    <nav>
+    <nav class="menu">
+        <a href="index.html" class="home-logo">STIKELY</a>
+
         <div class="hamburger-icon">
             ☰ EVENTS
         </div>
@@ -21,10 +23,205 @@
                 <li><a href="Entertainment.html">Entertaiment Events</a></li>
                 <li><a href="Education.html">Educational Events</a></li>
                 <li><a href="Volunteering.html">Volunteer Events</a></li>
+                <li><a href="Sports.html">Sports Events</a></li>
             </ul>
         </div>
+
+        <button class="explore-button">Explore Events</button>
+        <button class="create-button">Create Event</button>
+        <button class="btn-register" id="register">Register</button>
+        <button class="btn-log-in">Log In</button>
+        <button class="btn-language">
+            <span class="language">Language</span>
+            <img class="language-image" src="https://icons.veryicon.com/png/o/education-technology/elements-1/language-multilingual.png">
+        </button>
+        
+        <section class="hero">
+            <div class="hero-div">
+                <h1>Your Volunteer Event Network</h1>
+                <p>Organize community service and charity events seamlessly.</p>
+                <button class="primary-button">Create Event</button>
+                <img class="hero-image" src="ProjectPhotos/Volunteering.jpg">
+            </div>
+        </section>
     </nav>
 
-    <script src="script.js" defer></script>
+    <section class="features">
+        <h2 class="features-title">Key Volunteering Features</h2>
+        <div class="features-zone">
+            <div class="feature-card">
+                <img src="ProjectPhotos/opportunitymatching.png" class="feature-icon">
+                <h3 class="feature-title">Opportunity Matching</h3>
+                <p class="feature-description">Personalized event suggestions based on your skills, interests and location.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/impactdashboard.png" class="feature-icon">
+                <h3 class="feature-title">Impact Dashboard</h3>
+                <p class="feature-description">Real-time tracking of volunteer hours, badges earned and project outcomes.</p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/teamcoordination.png" class="feature-icon">
+                <h3 class="feature-title">Team Coordination</h3>
+                <p class="feature-description">Shift scheduling, group messaging and leader assignments for seamless collaboration.                </p>
+            </div>
+
+            <div class="feature-card">
+                <img src="ProjectPhotos/sitelogistics.png" class="feature-icon">
+                <h3 class="feature-title">On-Site Logistics</h3>
+                <p class="feature-description">Digital check-in, equipment management and attendance tracking.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="use-cases">
+        <h2 class="cases-title">Perfect For</h2>
+        <div class="cases">
+
+            <div class="first-event">
+                <img src="ProjectPhotos/CleanupProjects.jpg" class="first-event-photo">
+                <h3 class="case-title">Community Cleanup Projects</h3>
+            </div>
+
+            <div class="second-event">
+                <img src="ProjectPhotos/Bank&Pantry.jpg" class="second-event-photo">
+                <h3 class="case-title">Food Bank & Pantry Drives</h3>
+            </div>
+
+            <div class="third-event">
+                <img src="ProjectPhotos/TreePlanting.jpeg" class="third-event-photo">
+                <h3 class="case-title">Tree Planting Initiatives</h3>
+            </div>
+
+            <div class="fourth-event">
+                <img src="ProjectPhotos/AnimalShelter.jpg" class="fourth-event-photo">
+                <h3 class="case-title">Animal Shelter Support<h3>
+            </div>
+
+            <div class="fifth-event">
+                <img src="ProjectPhotos/SeniorVisits.jpg" class="fifth-event-photo">
+                <h3 class="case-title">Senior Care Visits</h3>
+            </div>
+
+            <div class="sixth-event">
+                <img src="ProjectPhotos/CharityMarathon.jpg" class="sixth-event-photo">
+                <h3 class="case-title">Charity Marathons</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="testimonials-carousel">
+        <div class="testimonials-zone events-testimonials">
+            <h2 class="testimonials-title">What Our Volunteering Clients Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Our neighborhood cleanup saw 50 volunteers sign up in under an hour—registration was a breeze!</p>
+                    </div>
+                    <p class="testimonial-author">— Andreea Ionescu, Cleanup Coordinator</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">We doubled our usual food donations thanks to the streamlined event signup and volunteer scheduling.</p>
+                    </div>
+                    <p class="testimonial-author">— Mihai Pop, Food Drive Organizer</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Tree planting day was a hit—volunteers loved seeing real-time impact stats on the app.</p>
+                    </div>
+                    <p class="testimonial-author">— Cristina Florescu, Conservation Lead</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Animal shelter support event filled over 100 foster applications seamlessly.</p>
+                    </div>
+                    <p class="testimonial-author">— Răzvan Georgescu, Shelter Manager</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Mentoring sessions connected 30 students in one week—automated reminders kept everyone on track.</p>
+                    </div>
+                    <p class="testimonial-author">— Ioana Marin, Program Director</p>
+                </div>
+
+                <div class="testimonial-card">
+                    <img src="ProjectPhotos/user.png" class="testimonial-avatar">
+                    <div class="testimonial-text-zone">
+                        <p class="testimonial-text">Our charity run hit a record turnout, and live split-time updates kept runners motivated.</p>
+                    </div>
+                    <p class="testimonial-author">— Laura Dumitru, Race Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="cta-zone">
+            <h2 class="cta-title">Ready to Host Your Next Volunteering Event?</h2>
+            <p class="cta-subtitle">Make an impact today—mobilize volunteers and transform your community.</p>
+            <button class="cta-button">Create Events for Free</button>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="about-column">
+            <h2 class="footer-logo">STIKELY</h2>
+            <p>Your trusted platform for booking unique and memorable events.</p>
+        </div>
+
+        <div class="links-column">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="JoinEvents.html">Events</a></li>
+                <li><a href="">About Us</a></li>
+                <li><a href="Partners.html">Partners</a></li>
+                <li><a href="">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="resources-column">
+            <h3>Resources</h3>
+            <ul>
+                <li><a href="">FAQ</a></li>
+                <li><a href="">Blog</a></li>
+                <li><a href="">Terms and Conditions</a></li>
+                <li><a href="">Privacy Policy</a></li>
+            </ul>
+        </div>
+
+        <div class="contact-column">
+            <h3>Contact</h3>
+            <ul>
+                <li><span>Email: </span><a href="">contact@stikleyevents.ro</a></li>
+                <li><span>Telefon: </span><a href="">+40 123 456 789</a></li>
+            </ul>
+        </div>
+
+        <div class="social-media">
+            <a href="">Facebook</a>
+            <a href="">Instagram</a>
+            <a href="">Twitter</a>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2025 STIKELY. All rights reserved.</p>
+        </div>
+
+    </footer>
+
+    <script src="Script.js" defer></script>
 </body>
 </html>
