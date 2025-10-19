@@ -164,15 +164,6 @@ namespace Macao
             }
         }
 
-        public bool IsOponnentAbleToRespondWithACard(Player afectedPlayer)
-        {
-            if(PlayerTurn != afectedPlayer.Name)
-            {
-                return true;
-            }
-            return false;
-        }
-
         public void DrawCardsForPlayer(Player afectedPlayer, int numberOfCards)
         {
             if(DrawDeck.Cards.Count < numberOfCards && DrawDeck.Cards.Count != 0)

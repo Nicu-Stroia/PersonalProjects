@@ -28,7 +28,7 @@ namespace Macao
             InitializeComponent();
 
             FormClosing += CloseApplication;
-        }
+        }  
 
         private void CloseApplication(object sender, FormClosingEventArgs e)
         {
