@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Student {
     private String nume;
@@ -8,11 +9,10 @@ public class Student {
     private int grupa;
     private ArrayList<Integer> note = new ArrayList<>();
 
-    public Student(String nume, String prenume, int grupa, ArrayList<Integer> note) {
+    public Student(String nume, String prenume, int grupa) {
         this.nume = nume;
         this.prenume = prenume;
         this.grupa = grupa;
-        this.note = note;
     }
 
     public double getMedia(ArrayList<Integer> note) {
@@ -25,6 +25,15 @@ public class Student {
 
     public String getNumePrenume() {
         return nume + " " + prenume;
+    }
+
+    public ArrayList<Integer> generareNote(){
+        Random rand = new Random();
+        for (int i = 0; i < 5; i++) {
+            int nota = rand.nextInt(11);
+            note.add(nota);
+        }
+        return note;
     }
 
     public ArrayList<Integer> getNote(){
