@@ -28,9 +28,8 @@ public class Main {
                 .toList();
 
 
-        nume.stream()
-                .filter((numePersoana)->numePersoana.length()>5)
-                .forEach((numePersoana)->System.out.print(numePersoana));
+        numeMaiMiciDe5.stream()
+                .forEach(numePersoana->System.out.print(numePersoana));
 
         System.out.println();
         nume.stream()
