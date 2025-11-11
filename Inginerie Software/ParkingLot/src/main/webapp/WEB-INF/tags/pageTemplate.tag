@@ -12,8 +12,6 @@
     <main class="container-fluid mt-5">
         <jsp:doBody/>
     </main>
-    <footer class="text-center">
-        <p>© 2025 Stroia Nicolae - Aurelian</p>
-    </footer>
+    <jsp:include page="/WEB-INF/pages/footer.jsp" />
 </body>
 </html>
