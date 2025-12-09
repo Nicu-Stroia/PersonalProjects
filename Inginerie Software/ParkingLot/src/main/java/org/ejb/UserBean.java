@@ -33,6 +33,7 @@ public class UserBean {
         List<UserDto> userDtos = new ArrayList<>();
         for (User user : users){
             UserDto userDto = new UserDto(
+                    user.getId(),
                     user.getUsername(),
                     user.getEmail()
             );

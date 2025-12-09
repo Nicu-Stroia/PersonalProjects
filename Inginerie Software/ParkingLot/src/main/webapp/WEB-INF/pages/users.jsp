@@ -8,7 +8,7 @@
     <c:forEach var="user" items="${users}">
       <div class="row">
         <div class="col">
-            ${user.name};
+            ${user.username};
         </div>
         <div class="col">
             ${user.email}
