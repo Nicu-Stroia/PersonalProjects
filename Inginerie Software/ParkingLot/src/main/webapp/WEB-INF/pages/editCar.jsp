@@ -2,7 +2,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-<t:pageTemplate pageTitle="Add Car">
+<t:pageTemplate pageTitle="Edit Car">
     <h2>Edit Car</h2>
 
     <form class="needs-validation" novalidate method="POST" action="${pageContext.request.contextPath}/EditCar">

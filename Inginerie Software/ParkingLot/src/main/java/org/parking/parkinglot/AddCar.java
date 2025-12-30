@@ -11,6 +11,7 @@ import org.parking.parkinglot.common.UserDto;
 import java.io.IOException;
 import java.util.List;
 
+@ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_CARS"}))
 @WebServlet(name = "AddCar", value = "/AddCar")
 public class AddCar extends HttpServlet {
 
