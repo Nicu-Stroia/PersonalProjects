@@ -20,6 +20,9 @@ public class Car {
     @JoinColumn(name = "owner_id", nullable = false)
     private User owner;
 
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private CarPhoto photo;
+
     public User getOwner() {
         return owner;
     }
@@ -50,6 +53,14 @@ public class Car {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public CarPhoto getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(CarPhoto photo) {
+        this.photo = photo;
     }
 
 }
