@@ -1,10 +1,10 @@
-package org.parking.parkinglot;
+package org.parking.parkinglot.servlets.cars;
 
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.ejb.CarsBean;
+import org.parking.parkinglot.ejb.CarsBean;
 import org.parking.parkinglot.common.CarDto;
 
 import java.io.IOException;
@@ -22,7 +22,7 @@ public class AddCarPhoto extends HttpServlet {
         CarDto car = carsBean.findById(carId);
         request.setAttribute("car", car);
 
-        request.getRequestDispatcher("/WEB-INF/pages/addCarPhoto.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/addCarPhoto.jsp").forward(request, response);
     }
 
     @Override

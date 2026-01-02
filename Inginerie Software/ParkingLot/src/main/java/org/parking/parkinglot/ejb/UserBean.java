@@ -1,4 +1,4 @@
-package org.ejb;
+package org.parking.parkinglot.ejb;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -74,5 +74,46 @@ public class UserBean {
                 .setParameter("userIds", userIds)
                 .getResultList();
         return usernames;
+    }
+
+    public void updateUser(Long userId, String newUsername, String email, String password, Collection<String> newGroups) {
+
+        User user = entityManager.find(User.class, userId);
+
+        String oldUsername = user.getUsername();
+
+        user.setUsername(newUsername);
+        user.setEmail(email);
+
+        if (password != null && !password.trim().isEmpty()) {
+            user.setPassword(passwordBean.convertToSha256(password));
+        }
+
+        if (!oldUsername.equals(newUsername)) {
+            entityManager.createQuery("UPDATE UserGroup ug SET ug.username = :newUsername WHERE ug.username = :oldUsername")
+                    .setParameter("newUsername", newUsername)
+                    .setParameter("oldUsername", oldUsername)
+                    .executeUpdate();
+        }
+
+        if (newGroups != null) {
+            entityManager.createQuery("DELETE FROM UserGroup ug WHERE ug.username = :username")
+                    .setParameter("username", newUsername)
+                    .executeUpdate();
+
+            assignGroupsToUser(newUsername, newGroups);
+        }
+    }
+
+    public UserDto findById(Long id) {
+        User user = entityManager.find(User.class, id);
+
+        UserDto userDto = new UserDto(
+                user.getId(),
+                user.getUsername(),
+                user.getEmail()
+        );
+
+        return userDto;
     }
 }

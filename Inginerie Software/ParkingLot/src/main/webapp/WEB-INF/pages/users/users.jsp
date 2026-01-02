@@ -7,13 +7,16 @@
   <form method="POST" action="${pageContext.request.contextPath}/Users">
     <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
       <a href="${pageContext.request.contextPath}/AddUser" class="btn btn-primary btn-lg">Add User</a>
+    </c:if>
+
+    <c:if test="${pageContext.request.isUserInRole('INVOICING')}">
       <button class="btn btn-secondary" type="submit">Invoice</button>
     </c:if>
     <div class="container text-center">
       <c:forEach var="user" items="${users}">
         <div class="row">
           <div class="col">
-            <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
+            <c:if test="${pageContext.request.isUserInRole('INVOICING')}">
               <input type="checkbox" name="user_ids" value="${user.id}">
             </c:if>
           </div>
@@ -23,6 +26,12 @@
           <div class="col">
               ${user.email}
           </div>
+
+          <c:if test="${pageContext.request.isUserInRole('WRITE_USERS')}">
+            <div class="col">
+              <a class="btn btn-secondary" href="${pageContext.request.contextPath}/EditUser?id=${user.id}">Edit User</a>
+            </div>
+          </c:if>
         </div>
       </c:forEach>
     </div>

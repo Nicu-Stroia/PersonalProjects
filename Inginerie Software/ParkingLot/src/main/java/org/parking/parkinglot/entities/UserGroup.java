@@ -10,10 +10,10 @@ public class UserGroup {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "user_group")
+    @Column(name = "user_group", nullable = false)
     private String userGroup;
 
     public void setUserGroup(String userGroup) {
@@ -22,5 +22,21 @@ public class UserGroup {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public String getUserGroup() {
+        return userGroup;
     }
 }

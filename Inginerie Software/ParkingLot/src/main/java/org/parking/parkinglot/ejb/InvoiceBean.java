@@ -1,4 +1,4 @@
-package org.ejb;
+package org.parking.parkinglot.ejb;
 
 import jakarta.ejb.Stateful;
 import jakarta.enterprise.context.SessionScoped;

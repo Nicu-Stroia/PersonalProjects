@@ -10,14 +10,14 @@ public class CarPhoto {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "filename")
+    @Column(name = "filename", nullable = false)
     private String filename;
 
-    @Column(name = "file_type")
+    @Column(name = "file_type", nullable = false)
     private String fileType;
 
     @Lob
-    @Column(name = "file_content")
+    @Column(name = "file_content", nullable = false)
     private byte[] fileContent;
 
     @OneToOne

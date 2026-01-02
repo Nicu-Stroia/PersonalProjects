@@ -1,4 +1,4 @@
-package org.ejb;
+package org.parking.parkinglot.ejb;
 import jakarta.ejb.EJBException;
 import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;

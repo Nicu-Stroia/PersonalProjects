@@ -1,20 +1,19 @@
-package org.parking.parkinglot;
+package org.parking.parkinglot.servlets.cars;
 
 import jakarta.inject.Inject;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
-import org.ejb.CarsBean;
-import org.ejb.UserBean;
-import org.parking.parkinglot.common.CarDto;
+import org.parking.parkinglot.ejb.CarsBean;
+import org.parking.parkinglot.ejb.UserBean;
 import org.parking.parkinglot.common.UserDto;
 
 import java.io.IOException;
 import java.util.List;
 
 @ServletSecurity(value = @HttpConstraint(rolesAllowed = {"WRITE_CARS"}))
-@WebServlet(name = "EditCar", value = "/EditCar")
-public class EditCar extends HttpServlet {
+@WebServlet(name = "AddCar", value = "/AddCar")
+public class AddCar extends HttpServlet {
 
     @Inject
     UserBean userBean;
@@ -24,14 +23,9 @@ public class EditCar extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<UserDto> users = userBean.findAllUsers();
+        List<UserDto> users  = userBean.findAllUsers();
         request.setAttribute("users", users);
-
-        Long carId = Long.parseLong(request.getParameter("id"));
-        CarDto car = carsBean.findById(carId);
-        request.setAttribute("car", car);
-
-        request.getRequestDispatcher("/WEB-INF/pages/editCar.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/cars/addCar.jsp").forward(request, response);
     }
 
     @Override
@@ -39,9 +33,8 @@ public class EditCar extends HttpServlet {
         String licensePlate = request.getParameter("license_plate");
         String parkinSpot = request.getParameter("parking_spot");
         Long userId = Long.parseLong(request.getParameter("owner_id"));
-        Long carId = Long.parseLong(request.getParameter("car_id"));
 
-        carsBean.updateCar(carId, licensePlate, parkinSpot, userId);
+        carsBean.createCar(licensePlate, parkinSpot, userId);
 
         response.sendRedirect(request.getContextPath() + "/Cars");
     }
