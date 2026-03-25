@@ -122,7 +122,7 @@ public class CarsBean {
         if (photos.isEmpty()) {
             return null;
         }
-        CarPhoto photo = photos.get(0); // the first element
+        CarPhoto photo = photos.get(0);
         return new CarPhotoDto(photo.getId(), photo.getFilename(), photo.getFileType(),
                 photo.getFileContent());
     }

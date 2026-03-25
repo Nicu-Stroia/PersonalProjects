@@ -42,7 +42,8 @@ public class UserBean {
             UserDto userDto = new UserDto(
                     user.getId(),
                     user.getUsername(),
-                    user.getEmail()
+                    user.getEmail(),
+                    new ArrayList<>()
             );
             userDtos.add(userDto);
         }
@@ -77,7 +78,6 @@ public class UserBean {
     }
 
     public void updateUser(Long userId, String newUsername, String email, String password, Collection<String> newGroups) {
-
         User user = entityManager.find(User.class, userId);
 
         String oldUsername = user.getUsername();
@@ -108,10 +108,15 @@ public class UserBean {
     public UserDto findById(Long id) {
         User user = entityManager.find(User.class, id);
 
+        List<String> userGroups = entityManager.createQuery("SELECT g.userGroup FROM UserGroup g WHERE g.username = :username", String.class)
+                .setParameter("username", user.getUsername())
+                .getResultList();
+
         UserDto userDto = new UserDto(
                 user.getId(),
                 user.getUsername(),
-                user.getEmail()
+                user.getEmail(),
+                userGroups
         );
 
         return userDto;

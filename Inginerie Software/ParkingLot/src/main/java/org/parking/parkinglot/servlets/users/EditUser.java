@@ -45,7 +45,6 @@ public class EditUser extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String password = request.getParameter("password");
-
         String[] userGroupsArray = request.getParameterValues("user_groups");
 
         List<String> userGroups = new ArrayList<>();
@@ -54,7 +53,6 @@ public class EditUser extends HttpServlet {
         }
 
         Long id = Long.parseLong(idAsString);
-
         userBean.updateUser(id, username, email, password, userGroups);
 
         response.sendRedirect(request.getContextPath() + "/Users");

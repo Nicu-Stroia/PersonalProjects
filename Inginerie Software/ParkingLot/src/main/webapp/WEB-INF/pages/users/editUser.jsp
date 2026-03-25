@@ -39,7 +39,9 @@
                 <label for="user_groups">User Groups</label>
                 <select class="custom-select d-block w-100" id="user_groups" name="user_groups" multiple>
                     <c:forEach var="group" items="${userGroups}">
-                        <option value="${group}">${group}</option>
+                        <option value="${group}" ${user.userGroups.contains(group) ? 'selected' : ''}>
+                                ${group}
+                        </option>
                     </c:forEach>
                 </select>
             </div>
